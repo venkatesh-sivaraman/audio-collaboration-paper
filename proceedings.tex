@@ -53,7 +53,7 @@
 % redefine many LaTeX commands.
 \definecolor{linkColor}{RGB}{6,125,233}
 \hypersetup{%
-  pdftitle={SIGCHI Conference Proceedings Format},
+  pdftitle={Editability in Online Audio Discussion},
   pdfauthor={LaTeX},
   pdfkeywords={SIGCHI, proceedings, archival format},
   bookmarksnumbered,
@@ -72,7 +72,7 @@
 % End of preamble. Here it comes the document.
 \begin{document}
 
-\title{SIGCHI Conference Proceedings Format}
+\title{Editability in Online Audio Discussion}
 
 \numberofauthors{3}
 \author{%
@@ -112,15 +112,29 @@
 
 \section{Introduction}
 
-This format is to be used for submissions that are published in the
-conference proceedings. We wish to give this volume a consistent,
-high-quality appearance. We therefore ask that authors follow some
-simple guidelines. You should format your paper exactly like this
-document. The easiest way to do this is to replace the content with
-your own material.  This document describes how to prepare your
-submissions using \LaTeX.
+Asynchronous audio communication (AAC) is rapidly becoming available to general users of technology. 
+While text is still by far the most prevalent mode of communication on the Internet, social platforms such as WhatsApp, iMessage, and Facebook provide the option to record audio-only messages in addition to text, photo, and video. 
+Audio is desirable in such situations because it allows users to deliver more expressive, nuanced messages.
 
-\section{Page Size and Columns}
+AAC holds considerable potential for more specialized settings as well, namely collaboration for education and business. 
+For instance, audio messages have been favorably used to disseminate feedback on assignments in online education courses \cite{ice,oomen}. 
+On the other hand, voice communication is much less prevalent in business environments; the predominant manifestation of audio-only communication has been voicemail, a paradigm that is on the decline and generally regarded as ``onerous'' and ``laborious'' \cite{whittaker}. 
+According to Grudin \cite{grudin}, the primary reason for this failure of voicemail is an imbalance of work between speaker and listener: message creators are afforded the convenience of rapid production, while listeners are often faced with a bevy of voice messages which must be processed essentially at the original rate of speech. 
+Perhaps for this reason, email continues to predominate over voice messages in corporate communication despite the diminished individuality and, more critically, the higher risk of miscommunication in textual media \cite{byron}.
+
+Despite the difficulties addressed by Grudin, however, AAC would undoubtedly be superior to text in certain contexts. 
+For instance, audio messages could be used in online courses to improve student-student and student-instructor engagement and a sense of the instructor's social presence \cite{oomen}. 
+Another area of benefit would be in document-based collaboration, in which voice annotations would be uniquely capable of allowing the user to consume others' comments aurally without distracting the user visually \cite{yoon}.
+
+This paper seeks to address the current problems of AAC by means of a user-friendly tool, which we call SimpleSpeech, for audio production in a discussion setting. 
+While solutions to the issue of imbalance between speaker and listener have been developed in prior studies, the authors feel that the significant advances in automatic speech recognition (ASR) in recent years \cite{baker} have created new areas of potential improvement. 
+Recording and editing voice messages in a web browser is now entirely practical, and ASR error rates are low enough that text can be used as a proxy for editing audio at the word level.
+Furthermore, the preliminary tests conducted in this study revealed a hitherto unexplored consequence of AAC, namely an elevated level of mental workload while recording one's voice. 
+This effect was investigated quantitatively to assess its possible impact on the viability of AAC, especially in educational contexts. 
+
+The structure of the paper is as follows: first, earlier works that have attempted to resolve problems with AAC are discussed. Next, we present the design and implementation of SimpleSpeech, as well as the qualitative evaluation study we conducted to generate implications for AAC in general. Finally, the workload and linguistic formality of voice messages produced using SimpleSpeech is investigated, providing insight into future applications of AAC for online collaboration.
+
+\section{Related Work}
 On each page your material should fit within a rectangle of 7 $\times$
 9.25 inches (18 $\times$ 23.5 cm), centered on a US Letter page (8.5
 $\times$ 11 inches), beginning 0.75 inches (1.9 cm) from the top of
@@ -156,6 +170,7 @@ authors, you may have to place some address information in a footnote,
 or in a named section at the end of your paper. Leave one 10-point
 line of white space below the last line of affiliations.
 
+\label{quantitative-study}
 \subsection{Abstract and Keywords}
 
 Every submission should begin with an abstract of about 150 words,
