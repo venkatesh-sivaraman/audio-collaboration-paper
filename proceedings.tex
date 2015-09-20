@@ -122,17 +122,16 @@ On the other hand, voice communication is much less prevalent in business enviro
 According to Grudin \cite{grudin}, the primary reason for this failure of voicemail is an imbalance of work between speaker and listener: message creators are afforded the convenience of rapid production, while listeners are often faced with a bevy of voice messages which must be processed essentially at the original rate of speech. 
 Perhaps for this reason, email continues to predominate over voice messages in corporate communication despite the diminished individuality and, more critically, the higher risk of miscommunication in textual media \cite{byron}.
 
-Despite the difficulties that Grudin points out, AAC would undoubtedly be superior to text in certain contexts. 
-For instance, audio messages could be used in online courses to improve student-student and student-instructor engagement and a sense of the instructor's social presence \cite{oomen,tu}. 
-Another area of benefit would be in document-based collaboration, in which voice annotations would be uniquely capable of allowing the user to consume others' comments aurally without distracting the user visually \cite{yoon}.
+Despite the difficulties that Grudin points out, AAC is undoubtedly superior to text in certain contexts. 
+For instance, audio messages could be used as annotations on virtual documents, enabling the user to consume others' comments aurally without distracting the user visually \cite{yoon}.
+Another area of benefit is in online education, where voice communication has been shown to improve student-student and student-instructor engagement and a sense of the instructor's social presence \cite{oomen,tu}. 
+However, we hypothesized that lightweight editing tools would be beneficial or even essential to deploying AAC in educational contexts, since many students have trouble articulating their ideas vocally even in physical classrooms.
+Therefore, we developed a user-friendly audio production tool which we call SimpleSpeech and applied it to the scenario of discussion on an online forum. 
+The mental workload experienced by high school students and teachers recording voice messages was then studied, along with the linguistic features of the messages they produced.
 
-This paper seeks to address the current problems of AAC by means of a user-friendly tool, which we call SimpleSpeech, for audio production in a discussion setting. 
-While solutions to the issue of imbalance between speaker and listener have been developed in prior studies, the authors feel that the significant advances in automatic speech recognition (ASR) in recent years \cite{baker} have created new areas of potential improvement. 
-Recording and editing voice messages in a web browser is now entirely practical, and ASR error rates are low enough that text can be used as a proxy for editing audio at the word level.
-Furthermore, the preliminary tests conducted in this study revealed a hitherto unexplored consequence of AAC, namely an elevated level of mental workload while recording one's voice. 
-This effect was investigated quantitatively to assess its possible impact on the viability of AAC, especially in educational contexts. 
-
-The structure of the paper is as follows: first, earlier works that have attempted to resolve problems with AAC are discussed. Next, we present the design and implementation of SimpleSpeech, as well as the qualitative evaluation study we conducted to generate implications for AAC in general. Finally, the workload and linguistic formality of voice messages produced using SimpleSpeech is investigated, providing insight into future applications of AAC for online collaboration.
+The structure of the paper is as follows: first, earlier works that have attempted to resolve problems with AAC are discussed. 
+Next, we discuss the new design and interaction paradigm that make SimpleSpeech accessible to general users, as well as an evaluation of its usability. 
+Finally, the mental workload and linguistic aspects of voice messages produced using SimpleSpeech are investigated, providing insight into future applications of AAC for online collaboration.
 
 \section{Related Work}
 Past approaches to combined audio and text modalities have their origin in voicemail systems, which exemplify the imbalance between audio production and consumption. 
@@ -152,7 +151,7 @@ A similar approach was utilized by Rubin et al. \cite{rubin}, who recently creat
 
 In software targeted for non-professional users, Whittaker and Amento \cite{whittaker_semantic} developed a "semantic speech editor" in which the sole means of editing was through the transcription. 
 They found that using the transcription as a proxy for audio editing was faster and produced better-quality revisions than audio-only modes, noting that the ability to scan quickly for regions requiring editing obviated the need for repeated playback. 
-On the other hand, the ASR in their 2004 study suffered from a 28\% error rate; today's language models permit considerably greater accuracy, resulting in potentially even easier and faster audio editing.
+However, the ASR in their 2004 study suffered from a 28\% error rate; today's language models permit considerably greater accuracy, resulting in potentially even easier and faster audio editing.
 
 
 \section{Software Design}
@@ -161,13 +160,13 @@ Our design goals were as follows: to utilize live ASR transcription to assist in
 The appearance of the final SimpleSpeech user interface (UI) is shown in Fig. WHAT.
 
 There are a wide variety of approaches to audio editing, ranging from waveform-only interfaces such as Audacity and Adobe Audition to "semantic speech editors" \cite{whittaker_semantic} which show only a transcript. 
-For SimpleSpeech, we decided to adopt an editing paradigm similar to the latter, allowing the user to edit a textual representation which was time-aligned with the audio.
+For SimpleSpeech, we decided to adopt an interaction paradigm similar to the latter, allowing the user to edit a textual representation which was time-aligned with the audio.
 This choice was made for two reasons: (1) in general, users are much more familiar with text than with waveform editing; and (2) representing the audio as text would greatly increase the efficiency of editing speech on the word level, in contrast to the greater complexity of millisecond-level waveform operations. 
 
 Accordingly, the UI for SimpleSpeech devotes the majority of the editing panel to the transcription. 
 Users interact with the text by selecting, editing, and deleting tokens, which are colored blue for recognized words and green for pauses and unrecognized sounds. 
 In addition to deletion using the Backspace key, green pause tokens can be inserted or extended using the space bar.
-Deleting and inserting tokens results in the appropriate modifications to the working audio file.
+Deleting and inserting tokens results in the appropriate modifications automatically applied to the working audio file.
 
 We did choose to include a waveform visualization as part of the UI, though it serves only the auxiliary purpose of reinforcing to the user that he or she is ultimately manipulating audio, not text. The waveform incorporates several subtle indications of the mapping between its contents and the transcription:
 \begin{itemize}
@@ -182,106 +181,88 @@ Without the waveform, users' inclination was to disregard the original speech an
 \subsection{Simplification through Modes and Quasi-Modes}
 Our use of text as a proxy for editing audio rendered it necessary to clearly delineate the capabilities of SimpleSpeech in comparison to a word processor.
 For instace, direct text input is disallowed in the transcript area to avoid inserting words not present in the original recording.
-To keep the behavior consistent, then, keyboard input is entirely disabled except for deletion and pause insertion.
-However, we found the capability to edit the transcription to be desirable, especially if both audio and text representations were to be viewed by the message recipients.
-To avoid interfering with token insertion and deletion, this transcription editing functionality is available in a separate mode, accessed by pressing the Return key. 
+The solid appearance and inability to move the caret within the tokens visually confirms that the transcript cannot be edited without correspondence to the audio.
+However, we found the capability to edit individual words in the transcript to be desirable, especially in the case of ASR errors.
+This transcription editing functionality is available in a separate mode, accessed by pressing the Return key, and applies only to single words to avoid undermining the cohesiveness of the tokens. 
 
-Another issue for experienced users that we identified in pilot testing was in quickly playing back and pausing the audio, since the conventional keyboard shortcut for playback, the spacebar, was already in use for the pause insertion feature.
+During pilot testing the need arose for a fast way to play back and pause the audio; however, the conventional keyboard shortcut for playback, the spacebar, was already in use for the pause insertion feature.
 We resolved this problem by using Shift+space for playing and pausing.
 In effect, the playback functionality was encapsulated as a \emph{quasi-mode}, a set of distinct features that are accessed while performing a constant action (in this case, pressing the Shift key) \cite{raskin}. 
 The modal design helps prevent basic or beginning users from being visually overwhelmed, while allowing more advanced users rapid access to the higher-level features.
 
 \subsection{Implementation}
-Our text-based approach requires a reliable transcription as well as time intervals corresponding to each word, both of which are generated by the IBM Watson Developer Cloud speech-to-text transcription service.
-The web application, written in JavaScript, communicates through a web socket with the IBM server for transcription but performs all editing locally.
-Internally, SimpleSpeech maintains a data model consisting of one or more user-created audio resources as well as a list of timestamps, where each timestamp links a token in the text area to a specific time interval within an audio resource. 
+Our text-based approach requires a reliable transcription as well as time intervals corresponding to each word, both of which are provided by the IBM Watson Developer Cloud speech-to-text transcription service.
+The web application is written in JavaScript and communicates through a web socket with the IBM server for transcription.
+Editing is accomplished by maintaining a data model consisting of one or more user-created audio resources as well as a list of timestamps, where each timestamp links a token in the text area to a specific time interval within an audio resource. 
 When the user plays back the message, the data model ``renders'' a complete audio recording by stitching together the audio from each timestamp. 
+
+\subsection{Design Process}
+We followed an iterative procedure to develop SimpleSpeech, beginning with the design goals mentioned above.
+The early stages of the application mainly focused on incorporating basic features, such as recording, playback and basic word manipulations. 
+After building an initial prototype of the application, an informal pilot test was conducted with 5 participants. 
+Each user was given a brief introduction to the software and shown how to use the basic features, then given the scenario of creating an audio response to a fellow student's textual claim on an online forum. 
+(The prompts used in all tests were adapted from the GRE Pool of Issue Topics.) 
+After using the software, users were interviewed to obtain feedback on the prototype, yielding the following modifications:
+
+\emph{Tokenization}. 
+Initially, the words were tokenized so that words and pauses could be deleted in their entirety, but the user could still edit the contents of the tokens by navigating with the arrow keys.
+However, the pilot study participants were confused by the inline transcript editing behavior; they either tried to insert new unrecorded content by typing or, in the opposite extreme, used the recording insert feature even for minor transcription errors. 
+We endeavored to clarify these delineations in the next iteration by disabling alphanumeric input to the transcript view entirely and changing the transcription editing functionality to a modal interaction.
+
+\emph{Pause manipulation}.
+Another important finding in the pilot study was the importance of being able to introduce and adjust gaps between words, not just to remove them. 
+These pauses help punctuate claims and make natural-sounding cuts between audio clips, with the pause length determined by the speaker's preference and the textual context around the gap (e.g., the end of a sentence). 
+The original system only allowed the user to delete pauses, so we added a spacebar action to insert a zero audio signal or fragment of silence from the original audio resource into the rendered message. 
 
 \section{Qualitative Evaluation}
 
-Every submission should begin with an abstract of about 150 words,
-followed by a set of Author Keywords and ACM Classification
-Keywords. The abstract and keywords should be placed in the left
-column of the first page under the left half of the title. The
-abstract should be a concise statement of the problem, approach, and
-conclusions of the work described. It should clearly state the paper's
-contribution to the field of HCI\@.
+The interaction paradigm of SimpleSpeech was tested in a qualitative assessment to determine (1) the practicability of a lightweight text-based audio editor, (2) the effects of minor transcription errors on audio consumption and production, and (3) the implications of being able to edit audio in an asynchronous online discussion.
 
-\subsection{Normal or Body Text}
+Participants were introduced to the functionality of the system, then given two untimed tasks. 
+First, to simulate an asynchronous audio discussion, the test users were asked to read an audio comment left by the previous tester and create an audio response. 
+Next, they received a different, textual prompt and created an audio comment which would be consumed by the next user. 
+In both cases the user was asked to edit their recordings to be polished and clear.
+The participants were interviewed at the end of the test over three general topics: (1) comparing the hybrid editor with conventional text editing, (2) comparing the discussion component with a text-based or face-to-face conversation, and (3) any user experience issues that occurred during the study. 
+Afterwards, the interviews were transcribed, conversational elements filtered out, and the remaining sentences analyzed via two-step coding (open coding followed by flat coding). 
 
-Please use a 10-point Times New Roman or Times Roman font or, if this
-is unavailable, another proportional font with serifs, as close as
-possible in appearance to Times Roman 10-point. Other than Helvetica
-or Arial headings, please use sans-serif or non-proportional fonts
-only for special purposes, such as source code text.
+The sample for the study consisted of 9 test subjects (4 male, 5 female, henceforth denoted $P_1, P_2, \ldots, P_9$). 
+All participants were native English speakers. 
+Two individuals, $P_2$ and $P_3$, were professional media editors who provided technical feedback and a comparison to pure audio editing; the remainder were interns and high school students.
 
-\subsection{First Page Copyright Notice}
-This template include a sample ACM copyright notice at the bottom of
-page 1, column 1.  Upon acceptance, you will be provided with the
-appropriate copyright statement and unique DOI string for publication.
-Accepted papers will be distributed in the conference
-publications. They will also be placed in the ACM Digital Library,
-where they will remain accessible to thousands of researchers and
-practitioners worldwide. See
-\url{http://acm.org/publications/policies/copyright_policy} for the
-ACM’s copyright and permissions policy.
+\subsection{Results}
 
-%%%
+Most non-professional users felt SimpleSpeech gave them ``plenty of control'' over the editing process ($P_4,\,P_5,\,P_6,\,P_8$). 
+The professional editors did note that most people in their field would not find this software adequate for their needs; but, as $P_2$ conceded, the intended market users ``don't have to play with the settings which is why they don't use a professional audio editor.'' 
+With respect to the style of user edits, the most commonly-used editing tool was the removal of disfluencies ($P_1,\,P_2,\,P_4,\,P_5,\,P_7$), followed by space deletion ($P_2,\,P_3,\,P_5,\,P_6,\,P_8$). 
+Only $P_1$ and $P_8$ edited large chunks of audio by deleting or rerecording, and $P_8$ reported doing so only to improve the smoothness of a smaller change in a sentence.
+Most participants characterized this editing experience as being a text-focused one, suggesting that the translation to text was in fact a useful proxy for editing audio. 
+The text modality was described as ``more accessible, more doable'' than pure waveform editing, which could be ``scary for people who don't do video stuff'' ($P_3,\,P_7$).
 
-\subsection{Subsequent Pages}
+In many cases, the transcription proved to be an essential element of both the production and the consumption interfaces. 
+To determine the effect of errors in the textual representation, the previous participants' comments were displayed to users with an unedited ASR transcript instead of the polished, human-edited one. 
+Despite the occasional errors, users still found the ASR transcription to be helpful in allowing them to ``see all the points they were making instead of having to remember them'' ($P_4,\,P_6$). 
+For some users, the transcription caused no problems in comprehension, while others experienced errors that required them to pay more attention to the audio ($P_8$). 
+On the whole, ASR succeeded in ``getting the basic idea across'' ($P_3$) but could not stand alone without the original recording. 
+In the editing scenario, most users agreed that the transcription functionality was ``overall quite accurate'' if they spoke clearly enough ($P_1,\,P_3,\,P_4,\,P_5,\,P_6,\,P_7,\,P_9$). 
 
-On pages beyond the first, start at the top of the page and continue
-in double-column format.  The two columns on the last page should be
-of equal length.
+In some participants we also observed pressure associated with the audio production process. $P_4,\,P_7,$ and $P_9$ described a ``psychological sort of ... need to get it all out, and the fact that it won't necessarily be as organized there.'' 
+Another tester, $P_5$, had ``a tendency to get like a blank slate'' in which he ``couldn't think of anything to say.'' 
+The elevated mental task load that $P_5$ describes could be inherent in oral discussion; $P_9$ noted that ``[it] might just be the fact that I was recording,'' and in fact ``editing would make it nicer.'' 
+Because this phenomenon was present despite the ability to edit and because it has not been explored in the literature to our knowledge, we decided to analyze the task load aspect of using SimpleSpeech in the quantitative study.
 
-\begin{figure}
-\centering
-  \includegraphics[width=0.9\columnwidth]{figures/sigchi-logo}
-  \caption{Insert a caption below each figure. Do not alter the
-    Caption style.}~\label{fig:figure1}
-\end{figure}
+Interestingly, the participants' awareness of their audience and the ability to edit tended to drive up the quality of recordings.
+Four users mentioned the formality of recordings using the software of their own volition or prompted by a question about pressure ($P_1,\,P_5,\,P_7,\,P_9$). 
+$P_8$ described the situation as ``an expectation'' to edit, given that ``I know that I've had that opportunity and someone else would know that I had that opportunity.'' 
+The speakers' inclination to consider their listeners is exemplified by $P_9$, when asked why she was motivated to edit her messages:
+\begin{quote}
+	Personally I'm editing to express myself a little more in a polished way when I'm writing.... especially if I know someone else is going to review it and be able to respond, I want to make sure I'm as clear as possible and as concise in a way that doesn’t really come across when I'm talking.
+\end{quote}
+Listening to another participant before initiating their own comment was likely a factor in determining the users' performance, since the exposure ``gave ... an understanding of how long of a comment, or what kind of direction people were trying to take the discussion'' ($P_9$). 
+Editing contributed to the increased quality as well: ``Since you have the ability to edit things, it feels like you're talking to somebody who's prepared a point or a conversational view'' ($P_5$). 
+We chose to explore this phenomenon quantitatively to determine if it was real or simply perceived by the speakers, and how it was affected by the ability to edit.
 
-\subsection{References and Citations}
+\section{Quantitative Evaluation}
 
-Use a numbered list of references at the end of the article, ordered
-alphabetically by last name of first author, and referenced by numbers
-in
-brackets~\cite{acm_categories,ethics,Klemmer:2002:WSC:503376.503378}.
-Your references should be published materials accessible to the
-public. Internal technical reports may be cited only if they are
-easily accessible (i.e., you provide the address for obtaining the
-report within your citation) and may be obtained by any reader for a
-nominal fee. Proprietary information may not be cited. Private
-communications should be acknowledged in the main text, not referenced
-(e.g., ``[Borriello, personal communication]'').
-
-References should be in ACM citation format:
-\url{http://acm.org/publications/submissions/latex_style}. This
-includes citations to internet
-resources~\cite{acm_categories,cavender:writing,CHINOSAUR:venue,psy:gangnam}
-according to ACM format, although it is often appropriate to include
-URLs directly in the text, as above.
-
-
-% Use a numbered list of references at the end of the article, ordered
-% alphabetically by first author, and referenced by numbers in
-% brackets~\cite{ethics, Klemmer:2002:WSC:503376.503378,
-%   Mather:2000:MUT, Zellweger:2001:FAO:504216.504224}. For papers from
-% conference proceedings, include the title of the paper and an
-% abbreviated name of the conference (e.g., for Interact 2003
-% proceedings, use \textit{Proc. Interact 2003}). Do not include the
-% location of the conference or the exact date; do include the page
-% numbers if available. See the examples of citations at the end of this
-% document. Within this template file, use the \texttt{References} style
-% for the text of your citation.
-
-% Your references should be published materials accessible to the
-% public.  Internal technical reports may be cited only if they are
-% easily accessible (i.e., you provide the address for obtaining the
-% report within your citation) and may be obtained by any reader for a
-% nominal fee.  Proprietary information may not be cited. Private
-% communications should be acknowledged in the main text, not referenced
-% (e.g., ``[Robertson, personal communication]'').
 
 \begin{table}
   \centering
