@@ -122,8 +122,8 @@ On the other hand, voice communication is much less prevalent in business enviro
 According to Grudin \cite{grudin}, the primary reason for this failure of voicemail is an imbalance of work between speaker and listener: message creators are afforded the convenience of rapid production, while listeners are often faced with a bevy of voice messages which must be processed essentially at the original rate of speech. 
 Perhaps for this reason, email continues to predominate over voice messages in corporate communication despite the diminished individuality and, more critically, the higher risk of miscommunication in textual media \cite{byron}.
 
-Despite the difficulties addressed by Grudin, however, AAC would undoubtedly be superior to text in certain contexts. 
-For instance, audio messages could be used in online courses to improve student-student and student-instructor engagement and a sense of the instructor's social presence \cite{oomen}. 
+Despite the difficulties that Grudin points out, AAC would undoubtedly be superior to text in certain contexts. 
+For instance, audio messages could be used in online courses to improve student-student and student-instructor engagement and a sense of the instructor's social presence \cite{oomen,tu}. 
 Another area of benefit would be in document-based collaboration, in which voice annotations would be uniquely capable of allowing the user to consume others' comments aurally without distracting the user visually \cite{yoon}.
 
 This paper seeks to address the current problems of AAC by means of a user-friendly tool, which we call SimpleSpeech, for audio production in a discussion setting. 
@@ -135,43 +135,69 @@ This effect was investigated quantitatively to assess its possible impact on the
 The structure of the paper is as follows: first, earlier works that have attempted to resolve problems with AAC are discussed. Next, we present the design and implementation of SimpleSpeech, as well as the qualitative evaluation study we conducted to generate implications for AAC in general. Finally, the workload and linguistic formality of voice messages produced using SimpleSpeech is investigated, providing insight into future applications of AAC for online collaboration.
 
 \section{Related Work}
-On each page your material should fit within a rectangle of 7 $\times$
-9.25 inches (18 $\times$ 23.5 cm), centered on a US Letter page (8.5
-$\times$ 11 inches), beginning 0.75 inches (1.9 cm) from the top of
-the page, with a 0.33 inches (0.85 cm) space between two 3.3 inches
-(8.4 cm) columns. Right margins should be justified, not
-ragged. Please be sure your document and PDF are US letter and not A4.
+Past approaches to combined audio and text modalities have their origin in voicemail systems, which exemplify the imbalance between audio production and consumption. 
+To remedy this, Whittaker et al. \cite{whittaker} attempted to create a more balanced, usable system by converting the audio messages into text using automatic speech recognition (ASR). 
+In that study, the combination of text and audio was considerably more appealing to listeners since it allowed them to extract information from messages more efficiently. 
+Most studies have utilized ASR to produce the textual representation of speech since the technique became feasibly accurate.
+
+Other related techniques for audio communication can be found in systems developed for document-based collaboration. 
+Elaborating on the findings of earlier platforms for multimedia annotation \cite{bargeron}, for example, an application called RichReview developed by Yoon et al. \cite{yoon} facilitates discussions over PDF documents via text, audio, or handwriting annotations. 
+An asynchronous audio solution for these document-based scenarios is especially relevant since it would allow commentators to have richer discussions over the document material without visually distracting from the original content. 
+
+In addition to increasing the efficiency of audio consumption, ASR can also be used to facilitate speech editing. 
+Phoneme alignment algorithms based on hidden Markov models, such as the Penn Phonetics Lab Forced Aligner \cite{p2fa}, enable the persistent synchronization of audio and text representations as they are manipulated. 
+Creating effective user interface paradigms that synthesize these two modalities, however, is a challenge that has been addressed mostly in dedicated audio and video editing software. 
+For instance, a video editor developed by Casares et al. \cite{casares} enables the user to edit either the audio track or its transcript, with changes in one mode reflected in the other. 
+A similar approach was utilized by Rubin et al. \cite{rubin}, who recently created a text-based editor for ``audio stories'' containing both speech and music.
+
+In software targeted for non-professional users, Whittaker and Amento \cite{whittaker_semantic} developed a "semantic speech editor" in which the sole means of editing was through the transcription. 
+They found that using the transcription as a proxy for audio editing was faster and produced better-quality revisions than audio-only modes, noting that the ability to scan quickly for regions requiring editing obviated the need for repeated playback. 
+On the other hand, the ASR in their 2004 study suffered from a 28\% error rate; today's language models permit considerably greater accuracy, resulting in potentially even easier and faster audio editing.
 
 
-\section{Typeset Text}
-The styles contained in this document have been modified from the
-default styles to reflect ACM formatting conventions. For example,
-content paragraphs like this one are formatted using the Normal style.
+\section{Software Design}
+Building on the capabilities developed in these prior studies, SimpleSpeech is a web-based graphical interface for recording and editing short voice messages in a discussion setting.
+Our design goals were as follows: to utilize live ASR transcription to assist in speech editing, to enable easy audio manipulation on the word level, and to add the more complex features on a tiered basis through modes and quasi-modes.
+The appearance of the final SimpleSpeech user interface (UI) is shown in Fig. WHAT.
 
+There are a wide variety of approaches to audio editing, ranging from waveform-only interfaces such as Audacity and Adobe Audition to "semantic speech editors" \cite{whittaker_semantic} which show only a transcript. 
+For SimpleSpeech, we decided to adopt an editing paradigm similar to the latter, allowing the user to edit a textual representation which was time-aligned with the audio.
+This choice was made for two reasons: (1) in general, users are much more familiar with text than with waveform editing; and (2) representing the audio as text would greatly increase the efficiency of editing speech on the word level, in contrast to the greater complexity of millisecond-level waveform operations. 
 
-\LaTeX\ sometimes will create overfull lines that extend into columns.
-To attempt to combat this, the \texttt{.cls} file has a command,
-\texttt{{\textbackslash}sloppy}, that essentially asks \LaTeX\ to
-prefer underfull lines with extra whitespace.  For more details on
-this, and info on how to control it more finely, check out
-{\url{http://www.economics.utoronto.ca/osborne/latex/PMAKEUP.HTM}}.
+Accordingly, the UI for SimpleSpeech devotes the majority of the editing panel to the transcription. 
+Users interact with the text by selecting, editing, and deleting tokens, which are colored blue for recognized words and green for pauses and unrecognized sounds. 
+In addition to deletion using the Backspace key, green pause tokens can be inserted or extended using the space bar.
+Deleting and inserting tokens results in the appropriate modifications to the working audio file.
 
-\subsection{Title and Authors}
+We did choose to include a waveform visualization as part of the UI, though it serves only the auxiliary purpose of reinforcing to the user that he or she is ultimately manipulating audio, not text. The waveform incorporates several subtle indications of the mapping between its contents and the transcription:
+\begin{itemize}
+	\item The waveform for the line of text currently containing the caret is rendered.
+	\item The time-aligned word boundaries are displayed as vertical lines.
+	\item If one or more tokens are selected, the audio segment corresponding to the selection is highlighted.
+	\item Deletions and pause insertions are visualized through a collapse/expand animation.
+\end{itemize}
+We found the presence of a waveform to be an important visual indicator of the purpose of SimpleSpeech.
+Without the waveform, users' inclination was to disregard the original speech and use the system as a dictation tool.
 
-Your paper's title, authors and affiliations should run across the
-full width of the page in a single column 17.8 cm (7 in.) wide.  The
-title should be in Helvetica or Arial 18-point bold.  Authors' names
-should be in Times New Roman or Times Roman 12-point bold, and
-affiliations in 12-point regular.  
+\subsection{Simplification through Modes and Quasi-Modes}
+Our use of text as a proxy for editing audio rendered it necessary to clearly delineate the capabilities of SimpleSpeech in comparison to a word processor.
+For instace, direct text input is disallowed in the transcript area to avoid inserting words not present in the original recording.
+To keep the behavior consistent, then, keyboard input is entirely disabled except for deletion and pause insertion.
+However, we found the capability to edit the transcription to be desirable, especially if both audio and text representations were to be viewed by the message recipients.
+To avoid interfering with token insertion and deletion, this transcription editing functionality is available in a separate mode, accessed by pressing the Return key. 
 
-See \texttt{{\textbackslash}author} section of this template for
-instructions on how to format the authors. For more than three
-authors, you may have to place some address information in a footnote,
-or in a named section at the end of your paper. Leave one 10-point
-line of white space below the last line of affiliations.
+Another issue for experienced users that we identified in pilot testing was in quickly playing back and pausing the audio, since the conventional keyboard shortcut for playback, the spacebar, was already in use for the pause insertion feature.
+We resolved this problem by using Shift+space for playing and pausing.
+In effect, the playback functionality was encapsulated as a \emph{quasi-mode}, a set of distinct features that are accessed while performing a constant action (in this case, pressing the Shift key) \cite{raskin}. 
+The modal design helps prevent basic or beginning users from being visually overwhelmed, while allowing more advanced users rapid access to the higher-level features.
 
-\label{quantitative-study}
-\subsection{Abstract and Keywords}
+\subsection{Implementation}
+Our text-based approach requires a reliable transcription as well as time intervals corresponding to each word, both of which are generated by the IBM Watson Developer Cloud speech-to-text transcription service.
+The web application, written in JavaScript, communicates through a web socket with the IBM server for transcription but performs all editing locally.
+Internally, SimpleSpeech maintains a data model consisting of one or more user-created audio resources as well as a list of timestamps, where each timestamp links a token in the text area to a specific time interval within an audio resource. 
+When the user plays back the message, the data model ``renders'' a complete audio recording by stitching together the audio from each timestamp. 
+
+\section{Qualitative Evaluation}
 
 Every submission should begin with an abstract of about 150 words,
 followed by a set of Author Keywords and ACM Classification
