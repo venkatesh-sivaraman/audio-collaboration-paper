@@ -1,0 +1,19 @@
+\section{Related Work}
+Past approaches to combined audio and text modalities have their origin in voicemail systems, which exemplify the imbalance between audio production and consumption. 
+To remedy this, Whittaker et al. \cite{whittaker} attempted to create a more balanced, usable system by converting the audio messages into text using automatic speech recognition (ASR). 
+In that study, the combination of text and audio was considerably more appealing to listeners since it allowed them to extract information from messages more efficiently. 
+Most studies have utilized ASR to produce the textual representation of speech since the technique became feasibly accurate.
+
+Other related techniques for audio communication can be found in systems developed for document-based collaboration. 
+Elaborating on the findings of earlier platforms for multimedia annotation \cite{bargeron}, for example, an application called RichReview developed by Yoon et al. \cite{yoon} facilitates discussions over PDF documents via text, audio, or handwriting annotations. 
+An asynchronous audio solution for these document-based scenarios is especially relevant since it would allow commentators to have richer discussions over the document material without visually distracting from the original content. 
+
+In addition to increasing the efficiency of audio consumption, ASR can also be used to facilitate speech editing. 
+Phoneme alignment algorithms based on hidden Markov models, such as the Penn Phonetics Lab Forced Aligner \cite{p2fa}, enable the persistent synchronization of audio and text representations as they are manipulated. 
+Creating effective user interface paradigms that synthesize these two modalities, however, is a challenge that has been addressed mostly in dedicated audio and video editing software. 
+For instance, a video editor developed by Casares et al. \cite{casares} enables the user to edit either the audio track or its transcript, with changes in one mode reflected in the other. 
+A similar approach was utilized by Rubin et al. \cite{rubin}, who recently created a text-based editor for ``audio stories'' containing both speech and music.
+
+In software targeted for non-professional users, Whittaker and Amento \cite{whittaker_semantic} developed a "semantic speech editor" in which the sole means of editing was through the transcription. 
+They found that using the transcription as a proxy for audio editing was faster and produced better-quality revisions than audio-only modes, noting that the ability to scan quickly for regions requiring editing obviated the need for repeated playback. 
+However, the ASR in their 2004 study suffered from a 28\% error rate; today's language models permit considerably greater accuracy, resulting in potentially even easier and faster audio editing.
