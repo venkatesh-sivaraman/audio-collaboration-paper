@@ -36,12 +36,6 @@ We resolved this problem by using Shift+space for playing and pausing.
 In effect, the playback functionality was encapsulated as a \emph{quasi-mode}, a set of distinct features that are accessed while performing a constant action (in this case, pressing the Shift key) \cite{raskin}. 
 The modal design helps prevent basic or beginning users from being visually overwhelmed, while allowing more advanced users rapid access to the higher-level features.
 
-\subsection{Implementation}
-Our text-based approach requires a reliable transcription as well as time intervals corresponding to each word, both of which are provided by the IBM Watson Developer Cloud speech-to-text transcription service.
-The web application is written in JavaScript and communicates through a web socket with the IBM server for transcription.
-Editing is accomplished by maintaining a data model consisting of one or more user-created audio resources as well as a list of timestamps, where each timestamp links a token in the text area to a specific time interval within an audio resource. 
-When the user plays back the message, the data model ``renders'' a complete audio recording by stitching together the audio from each timestamp. 
-
 \subsection{Design Process}
 We followed an iterative procedure to develop SimpleSpeech, beginning with the design goals mentioned above.
 The early stages of the application mainly focused on incorporating basic features, such as recording, playback and basic word manipulations. 
@@ -59,3 +53,9 @@ We endeavored to clarify these delineations in the next iteration by disabling a
 Another important finding in the pilot study was the importance of being able to introduce and adjust gaps between words, not just to remove them. 
 These pauses help punctuate claims and make natural-sounding cuts between audio clips, with the pause length determined by the speaker's preference and the textual context around the gap (e.g., the end of a sentence). 
 The original system only allowed the user to delete pauses, so we added a spacebar action to insert a zero audio signal or fragment of silence from the original audio resource into the rendered message. 
+
+\subsection{Implementation}
+Our text-based approach requires a reliable transcription as well as time intervals corresponding to each word, both of which are provided by the IBM Watson Developer Cloud speech-to-text transcription service.
+The web application is written in JavaScript and communicates through a web socket with the IBM server for transcription.
+Editing is accomplished by maintaining a data model consisting of one or more user-created audio resources as well as a list of timestamps, where each timestamp links a token in the text area to a specific time interval within an audio resource. 
+When the user plays back the message, the data model ``renders'' a complete audio recording by stitching together the audio from each timestamp. 
