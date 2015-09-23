@@ -209,3 +209,43 @@ Considering that the F-score measures contextuality between the speaker and the 
 	\caption{Various metrics representing the formality of the audio messages produced by each participant group.}~\label{tab:table2}
 \end{table*}
 
+\section{Formality Comparison}
+Determining the formality of voice-based asynchronous discussions is a revealing indicator of this technology's potential applications, and one that has not been studied extensively.
+The closest related studies have pertained to other forms of computer mediated communication (CMC), especially textual ones such as SMS, email, or Facebook posts.
+For example, Kiesler, Siegel, and McGuire \cite{kiesler} found more equalized group participation and more uninhibited expression of opinions in synchronous text-based CMC than in face-to-face discussions.
+Asynchronous CMC, similar to a discussion board, has also been shown to induce more prosocial behavior and, in fact, more informal communication styles over time than face-to-face \cite{walther}.
+The same informality has been shown to be true for text messages and Facebook-style posts \cite{bilal}.
+On the other hand, formality or politeness in emails generally increases as the social distance, status gap, and importance of a request increase \cite{cho}.
+
+How asynchronous audio discussion fits into the complex hierarchy of social dynamics on various platforms is still unknown, so we conducted a comparative analysis of the voice messages composed during this study with several corpora of different media.
+For comparison with written documents, we used several sections of the well-known Brown corpus to compile general categories of text: nonfiction, fiction, and technical (consisting of government documents, scientific articles, and news) \cite{brown}.
+We obtained chatroom text from the \texttt{nps\_chat} corpus, face-to-face conversation data from the \texttt{webtext} corpus, and telephone data from the \texttt{switchboard} corpus, all available as part of the Natural Language Toolkit (NLTK) \cite{nltk}.
+Finally, we also analyzed email communication in non-spam messages from the Enron corpus \cite{enronsent}, as well as Twitter posts \cite{twitter}.
+
+\subsection{Results}
+The results of this comparison, shown in Figure \ref{fig:formality}, illustrate the middle-ground that AAC takes relative to oral and written media. 
+The least formal and most contextual corpora were those based on oral communication (with the notable exception of web chat messages), while the most formal and least context-dependent were the written texts, including email and Twitter posts. 
+We will note three possible explanations for the formality of each medium based on the ordering of the corpora:
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth,keepaspectratio]{figures/formality_comparison}
+	\caption{The formality of corpora in different genre and media. The messages produced using SimpleSpeech during the quantitative study are intended to reflect general AAC discussion characteristics.}~\label{fig:formality}
+\end{figure}
+
+\emph{Speaker-audience relationship}. 
+Since the F-score ultimately measures contextuality, it is reasonable that the chat and telephone corpora were the most contextual because the participants knew each other and were conversing on a one-to-one basis. 
+On the other hand, the written forms of communication (with the exception of email) were less contextual because the audience was defined more loosely and not necessarily acquainted with the speaker.
+The form of AAC studied here was more closely related to the latter condition (as an online forum discussion), which probably contributed to its greater formality compared to the other spoken corpora.
+
+\emph{Immediacy of communication}. 
+The tendency to speak or write more contextually when the recipient replies immediately explains why the online chat text, though written, was more contextual and less formal than the oral corpora. 
+It also justifies the fact that the email corpus was more formal than all of the other direct communication media.
+Again, AAC falls toward the more formal end of this spectrum because there is no necessary temporal relationship between the speaker and the audience.
+
+\emph{Propensity for verbosity}.
+Media that pressured the creator to be brief or precise tended to be more formal and less contextual.
+For instance, writing technical documents requires the preferential use of nouns over pronouns to maximize clarity.
+Twitter messages are, of course, limited to 140 characters, leading to a greater concentration of meaning that favors less contextual words.
+For AAC, the ability to edit could influence the contextuality due to verbosity if discussion members were pressured to trim down their recordings. 
+For our study, however, the participants were not affected by verbosity; though non-edited recordings had on average 10\% more words than edited ones, these edits were more concentrated on removing disfluencies than improving concision.
