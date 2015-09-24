@@ -2,23 +2,19 @@
 
 Asynchronous audio communication (AAC) is rapidly becoming available to mass audiences through social platforms such as WhatsApp, iMessage, and Facebook. 
 While text is still by far the most prevalent mode of communication on the Internet, audio is desirable in many situations because it allows users to deliver more expressive, nuanced messages than text.
-
 AAC holds considerable potential for improving collaboration in education and business as well. 
-For instance, audio messages have been favorably used to disseminate feedback on assignments in online courses \cite{ice,oomen}. 
-On the other hand, voice communication is much less prevalent in business environments now that voicemail, a paradigm that is generally regarded as ``onerous'' and ``laborious'' \cite{whittaker}, is on the decline. 
-According to Grudin \cite{grudin}, the primary reason for the failure of voicemail is an inherent imbalance of workload between speaker and listener: message creators can speak more quickly than they can type, but recipients cannot listen as fast as they can read. 
-Perhaps for this reason, email continues to predominate over voice messages in corporate communication despite the diminished individuality and, more critically, the higher risk of miscommunication in textual media \cite{byron}.
-
-Despite these difficulties, AAC is undoubtedly superior to text for certain applications. 
 For instance, audio messages can be used as annotations on virtual documents, enabling the user to process comments aurally without visual distraction \cite{yoon}.
-Another area of benefit is in online education, where voice communication has been shown to improve student-student and student-instructor engagement as well as a sense of the instructor's social presence \cite{oomen,tu}. 
-When applying AAC to online education, however, many students may have trouble articulating their ideas vocally.
-This problem affects students even in physical classrooms and could prevent these learners from participating in online oral discussions.
-The goal of AAC platforms in such situations, then, is not only to improve efficiency for consumers, but also to compensate for the linearity and immutability of audio on the production side.
+Another area of benefit is in online education, where voice communication has been shown to improve student-student and student-instructor engagement as well as a sense of the instructor's social presence \cite{ice,oomen,tu}. 
+
+The problem with replacing textual communication with speech, however, is that speakers may face difficulty articulating their ideas vocally.
+For instance, a 2002 study using Wimba voice boards for discussion forums found that students overwhelmingly preferred text over speech comments, in part because it required them to speak fluently without making errors \cite{wimba}.
+Since this problem affects students even in physical classrooms, it could certainly prevent some learners from participating in online oral discussions.
+AAC platforms in such situations, then, must somehow compensate for the linearity and immutability of audio on the production side.
 
 Our solution is to provide lightweight, easy-to-use editing tools based on automatic speech recognition (ASR)-generated transcripts.
-Prior studies have utilized transcription as a proxy for editing audio, but have been limited by the quality of ASR algorithms
+Many prior studies have utilized transcription to assist in audio editing \cite{casares,rubin,whittaker_semantic}, but only recently has fast, live editing become possible through advances in ASR technology \cite{baker,saon}.
+We designed and developed an audio production tool, which we call SimpleSpeech, that allows users to delete and insert segments of the recording by manipulating a tokenized text representation. 
+Our user interface design focuses primarily on simplifying word-level editing, an approach that is shown to be successful in the context of an online forum discussion.
 
-We designed and developed a user-friendly audio production tool, which we call SimpleSpeech, and applied it to the scenario of discussion on an online forum. 
-The mental workload experienced by high school students recording voice messages was shown to be significantly decreased with editing functionality, indicating that SimpleSpeech is a valuable enhancement to online audio communication platforms.
+A summative evaluation showed that mental workload experienced by high school students recording voice messages was shown to be significantly decreased with editing functionality, indicating that SimpleSpeech is a valuable enhancement to online audio communication platforms.
 In addition, some linguistic characteristics of messages created using AAC are discussed with comparison to other forms of computer-mediated communication, leading to new considerations and insights on optimal applications of this technology.
