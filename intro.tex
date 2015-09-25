@@ -12,13 +12,13 @@ AAC platforms in such situations, then, must somehow compensate for the linearit
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth,keepaspectratio]{figures/large_screenshot}
-	\caption{The user interface for SimpleSpeech presents an automatically-generated transcription of a voice comment, which can then be manipulated through normal word-processing operations, such as selection, deletion, and insertion. }~\label{fig:overview_shot}
+	\caption{The user interface for SimpleSpeech presents an automatically-generated transcription of a voice comment, which can then be manipulated through normal word-processing operations, such as selection, deletion, and insertion. Word and pause tokens are mapped with audio via time alignment data.}~\label{fig:overview_shot}
 \end{figure}
 
 Our solution is to provide lightweight, easy-to-use editing tools based on automatic speech recognition (ASR)-generated transcripts.
 Many prior studies have utilized transcription to assist in audio editing \cite{casares,rubin,whittaker_semantic}, but only recently has fast, live editing become possible through advances in ASR technology \cite{baker,saon}.
-We designed and developed an audio production tool, which we call SimpleSpeech, that allows users to delete and insert segments of the recording by manipulating a tokenized text representation. 
-Our user interface design focuses primarily on simplifying word-level editing and visually reinforcing the mapping between the source audio and the text, which helps users edit when transcription errors are present.
+We designed and developed an audio production tool, which we call SimpleSpeech, that allows users to delete and insert segments of the recording in \textit{real-time} by manipulating a tokenized text representation. 
+Our user interface design focuses primarily on simplifying quick word-level editing and visually reinforcing the mapping between the source audio and the text, which helps users edit when transcription errors are present.
 
 Qualitative evidence indicates that SimpleSpeech's simplified interface gave users enough control over the editing process and enabled them to produce more polished audio comments in an online forum discussion.
 A subsequent quantitative evaluation with high school students showed that the mental workload of recording voice messages was significantly decreased with editing functionality, demonstrating that SimpleSpeech would be a valuable enhancement to online audio communication platforms.
