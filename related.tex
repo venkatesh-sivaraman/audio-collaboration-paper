@@ -1,18 +1,29 @@
 \section{Related Work}
-Past approaches to combined audio and text modalities have their origin in voicemail systems, which notoriously favor the producer over the listener. 
-To remedy this, Whittaker et al. \cite{whittaker} attempted to create a more balanced, usable system by converting the audio messages into text using ASR for the recipients. 
-In that study, the combination of text and audio was considerably more appealing to listeners since it allowed them to extract information from messages more efficiently. 
 
-Other related techniques for audio communication can be found in systems developed for document-based collaboration. 
-Elaborating on the findings of earlier platforms for multimedia annotation \cite{bargeron}, an application called RichReview developed by Yoon et al. \cite{yoon} facilitates discussions on PDF documents via text, audio, or handwritten annotations. 
-Effective use of AAC in these document-based scenarios is especially relevant since it allows commentators to engage in richer discussions over the material without visually distracting from the original content. 
+The linear and serial natures of voice not only preclude skimming and navigation capabilities \cite{grudin}, but also can hamper speech \emph{production} process. Mistakes in a recorded speech is harder to revise than typo in text mainly due to the lack of lightweight editing capability of voice \cite{marriott2002}. In addition, producing voice is temporarily linear process which demands the commentator to think and speak simultaneously \cite{marriott2002, yoon:2015}. Therefore, that the speaker have to keep speaking not to have undesirable long pauses can impose additional cognitive load. Standing on the qualitative implications of these previous works, our study presents quantitative measure about how such burdens can be reduced as the voice production system affords the a set of lightweight editing features.
 
-In addition to increasing the efficiency of audio consumption, ASR can also be used to facilitate speech editing. 
-Phoneme alignment algorithms such as the Penn Phonetics Lab Forced Aligner \cite{p2fa} align speech to the words in a transcript, enabling the use of text editing as a \emph{proxy} for lower-level audio manipulations.
-Creating effective user interface paradigms that synthesize these two modalities, however, is a challenge that has been addressed mostly in dedicated audio and video editing software. 
-For instance, a video editor developed by Casares et al. \cite{casares} enables the user to edit either the audio track or its transcript side-by-side, with changes in one mode reflected in the other. 
-A similar approach was utilized by Rubin et al. \cite{rubin}, who recently created a text-based editor for ``audio stories'' containing both speech and music.
+Since lower-level audio waveform editing is an onerous job, researchers has studied ways to manipulate speech as a series of semantically meaningful higher-level chunks, such as phrases. Acoustically detected speech or non-speech provided visual guidance in a binary fashion, so that users can edit or index the speech recording \cite{ades1986, hindus:1992}. On the other hand, pure acoustic approach had limited resolution of the recognition granularity. To achieve word-level structuring of speech, time-aligned automatic speech recognition (ASR) technique has been began to employed \cite{Schmandt81, Wilcox:1992}. Compared with the acoustic structuring, ASR enjoyed higher temporal resolution with semantic information, but also suffered from high computation load and delay, but as recent technical developments made fast and accurate ASR affordable, we take full benefit of such real-time transcription capability.
 
-In software targeted for non-professional users, Whittaker and Amento \cite{whittaker_semantic} developed a ``semantic speech editor" in which the sole means of editing was through the transcription. 
-They found that using the transcription as a proxy for audio editing was faster and produced better-quality revisions than audio-only modes, noting that the ability to scan quickly for regions that required editing obviated the need for repeated playback. 
-However, the ASR in their 2004 study suffered from a 28\% error rate; today's language models permit considerably greater accuracy, resulting in potentially even easier and faster audio editing.
+Since the transcription of a speech elicit contents of the recording, researchers has used it for helping visiual skimming and navigation. MedSpeak\cite{Lai:1997} and SCANMail \cite{whittaker} were well recognized as a precursor of such system that uses time-alignment data of transcript for indexing voice. As the transcription error turns out to hamper visually understanding, Vemuri et al. suggested a novel visualization of transcript that adjust transcription brightness to the word's confidence score \cite{Vemuri:2004}. Our study focuses on the use of ASR in the voice production process, which hasn't fully investigated yet.
+
+There has been several systems used time aligned transcript for editing audio \cite{yoon, whittaker_semantic, rubin} or video \cite{casares, Berthouzoz:2012}. Among them, Whittaker and Rubin's editing system leveraged users' familiarity to text-editing interfaces, and adopted audio editing in that framework. Since we targeted non-professional users, our interface took the text-editing like approach, but more geared toward supporting \emph{live} production process and goes beyond editing existing transcribed speech. We thus present versatile and novel features for supporting live production, such as voice insertion, pause extension, and fluid revision of transcription errors.
+
+Pauses in speech deliver nuanced meaning such as hesitation or emphasis, so easy and powerful manipulation of pause duration is important. SpeechSkimmer automatically condensed pauses for fast auditory skimming \cite{arons:1993}. Other previous systems supported pause via a designated button \cite{Berthouzoz:2012} or specialized tags \cite{rubin}. Rubin et al.'s system used <period> key as a shortcut to insert the pause tags, but the pause duration was preset, and need to be edited in a separate menu. Our approach is inline with the overall interaction concept of providing text-editing like experience, and adopted <space> and <delete> keys for in-situ \emph{extension} or removal of pause tokens.
+
+ASR results often contains transcription errors, which are detrimental for understanding and skimming the contents \cite{halverson1999beauty}. In MedSpeak interface, Lai et al. provided a a separate graphical window for fixing transcription errors \cite{Lai:1997}. In speech production system like SimpleSpeech, users can easily get lost whether she is in the audio editing mode or transcription fixing mode. We presented a novel solution that guides the user's attention to the \emph{keyboard cursor} that visually indicates which mode the user is in.
+
+
+Better voice consumption\cite{Whittaker:1994,Stifelman:2001,Lai:1997,yoon}
+
+
+
+\subsection{discussion}
+\cite{Berthouzoz:2012} 's audo removal of 'um's and 'uh's. But it will be challenging in live production scenario where perfect transcription is not guaranteed.
+
+\subsection{motivation}
+Mindless jump-cuts results in unnatural pause duration at the boundaries of edited audio tokens.
+
+\subsection{analysis}
+0.25 sec cut off. THE TROUBLE WITH "ARTICULATORY" PAUSES*
+IMPORTANT!! Report our transcription accuracy. Check that it is higher than 84\% word error rates, which was evaluated as an OK level \cite{stark2000asr}.
+Even errorful transcript is helpful for skimming and understanding \cite{Whittaker:1999}.
