@@ -53,6 +53,6 @@ The original system only allowed the user to delete pauses, so we added a spaceb
 
 \subsection{Implementation}
 Our text-based approach requires a reliable transcription as well as time intervals corresponding to each word, both of which are provided by the IBM Watson Developer Cloud speech-to-text transcription service.
-The web application is written in JavaScript and communicates through a web socket with the IBM server for transcription.
+For the sake of the cross-platform compatibility, the application was implemented as a web app written in JavaScript, HTML, and CSS.
 Editing is accomplished by maintaining a data model consisting of one or more user-created audio resources as well as a list of timestamps, each of which links a token in the text area to a time interval within an audio resource. 
 When the user plays back the message, the data model ``renders'' a complete audio recording by stitching together the audio from each timestamp. 
