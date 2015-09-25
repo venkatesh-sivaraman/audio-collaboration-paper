@@ -1,9 +1,7 @@
 \section{Designing SimpleSpeech}
 Building on the capabilities developed in these prior studies, SimpleSpeech is a web-based application for recording and editing short voice messages in a discussion setting.
-Our design goals were as follows: to utilize live ASR transcription to assist in speech editing, to enable easy audio manipulation on the word level, and to add more complex features on a tiered basis through modes and quasi-modes.
+Our design goals were as follows: to support versatile live voice production features with a text-like interface, and to maintain a simple baseline appearance that extends into more complex features through modes and quasi-modes.
 The appearance of the final SimpleSpeech user interface (UI) is shown in Fig. \ref{fig:overview_shot}.
-
-\red{This design goal is hard to grasp. Let's make it clearer: to support versatile live voice production features with text-editing like interface.--this is written horribly at 4 am, but I believe that you will be able to rephrase it.}
 
 \subsection{Text-Based Editing}
 There are a wide variety of approaches to audio editing, ranging from waveform-only interfaces such as Audacity and Adobe Audition to semantic speech editors \cite{whittaker_semantic} which show only a transcript. 
@@ -18,7 +16,7 @@ Deleting and inserting tokens results in the appropriate modifications automatic
 \begin{figure}
 	\centering
 	\includegraphics[width=\columnwidth,keepaspectratio]{figures/playback}
-	\caption{The waveform visual at the top of the SimpleSpeech editor serves as a visual cue connecting the transcript to the working recording. For instance, the waveform is highlighted during playback in tandem with the current word that is being spoken.}~\label{fig:playback}
+	\caption{The waveform visual at the top of the SimpleSpeech editor does not support direct millisecond-level editing; instead, it serves as a visual cue connecting the transcript to the working recording. For instance, the waveform is highlighted during playback in tandem with the current word that is being played.}~\label{fig:playback}
 \end{figure}
 
 \subsection{Reinforcing the Connection Between Audio and Text}
@@ -49,7 +47,7 @@ The modal design helps prevent beginning users from being overwhelmed with possi
 \end{figure}
 
 \subsection{Pilot Study and Design Improvements}
-\red{We followed an iterative procedure to increasingly improved the design of the SimpleSpeech interactions}.
+We followed an iterative procedure to progressively improve the design and interactions of SimpleSpeech.
 After building an initial prototype of the application, an informal pilot test was conducted with 5 participants. 
 Each user was given a brief introduction to the software and shown how to use the basic features, then given the scenario of creating an audio response to a written claim on an online forum. 
 (The prompts used in the tests were adapted from the GRE Pool of Issue Topics.) \red{pilot user demographic information here}
@@ -61,12 +59,12 @@ These gaps in the audio help make natural-sounding cuts between audio clips as w
 The original system only allowed the user to delete pauses, so we added a spacebar action to insert a zero audio signal or fragment of silence from the original audio resource into the rendered message. 
 
 \emph{Tokenization}. 
-With the initial tokenization scheme, words and pauses could be deleted in their entirety, but the user could still edit the contents of the tokens by navigating with the arrow keys.
-However, the pilot study participants were confused by this inline transcript editing behavior; they either tried to insert new unrecorded content by typing or, in the opposite extreme, used the recording insert feature even for minor transcription errors. 
-We endeavored to clarify these delineations in the next iteration by disabling alphanumeric input to the transcript view entirely and changing the transcription editing functionality to a modal interaction. \cite{this paragraph is hard to get. Please clarify.}
+The way we had tokenized the transcript originally, the user was able to ``enter'' the tokens with the caret and change their contents.
+However, this inline transcript editing behavior confused the pilot study participants, who tried to insert new unrecorded content by typing. 
+We endeavored to clarify these delineations in the next iteration by disabling direct alphanumeric input to the transcript view, and shifting the transcription editing functionality into a modal interaction.
 
 \subsection{Implementation}
-Our text-based approach requires a reliable transcription as well as time intervals corresponding to each word, both of which are provided by the IBM Watson Developer Cloud speech-to-text transcription service. \cite{Aren't there any data from IBM about the benchmarked WER ?}
+Our text-based approach requires a reliable transcription as well as time intervals corresponding to each word; both of these requirements are fulfilled by the IBM Watson Developer Cloud speech-to-text transcription service, which is reported to have a word error rate of 10.4\% \cite{soltau:2014}.
 For the sake of the cross-platform compatibility, the application was implemented as a web app written in JavaScript, HTML, and CSS.
 Editing is accomplished by maintaining a data model consisting of one or more user-created audio resources as well as a list of timestamps, each of which links a token in the text area to a time interval within an audio resource. 
 When the user plays back the message, the data model ``renders'' a complete audio recording by stitching together the audio from each timestamp. 
