@@ -1,7 +1,7 @@
 \section{Designing SimpleSpeech}
 Building on the capabilities developed in these prior studies, SimpleSpeech is a web-based application for recording and editing short voice messages in a discussion setting.
 Our design goals were as follows: to utilize live ASR transcription to assist in speech editing, to enable easy audio manipulation on the word level, and to add more complex features on a tiered basis through modes and quasi-modes.
-The appearance of the final SimpleSpeech user interface (UI) is shown in Fig. WHAT.
+The appearance of the final SimpleSpeech user interface (UI) is shown in Fig. \ref{fig:overview_shot}.
 
 \subsection{Text-Based Editing}
 There are a wide variety of approaches to audio editing, ranging from waveform-only interfaces such as Audacity and Adobe Audition to semantic speech editors \cite{whittaker_semantic} which show only a transcript. 
@@ -13,12 +13,18 @@ Users interact with the text by selecting, editing, and deleting \textit{tokens}
 In addition to deleting tokens using the Backspace key, green pause tokens can be inserted or extended using the space bar.
 Deleting and inserting tokens results in the appropriate modifications automatically applied to the working audio file.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth,keepaspectratio]{figures/playback}
+	\caption{The waveform visual at the top of the SimpleSpeech editor does not support direct millisecond-level editing; instead it serves as a visual cue connecting the transcript to the working recording. For instance, the waveform is highlighted during playback in tandem with the current word that is being spoken.}~\label{fig:playback}
+\end{figure}
+
 \subsection{Reinforcing the Connection Between Audio and Text}
 We chose to include a waveform visualization as part of the UI in order to remind the user that he or she is ultimately manipulating audio, not text. The waveform incorporates several subtle indications of the mapping between its contents and the transcription, including highlighting the audio corresponding to the current selection of tokens and animating deletions and insertions.
 We found the presence of a waveform to be a helpful visual indicator of the purpose of SimpleSpeech, although it was not functionally useful \textit{per se}.
 Without the waveform, users' inclination was to disregard the original speech and use the system as a dictation tool.
 
-Another strategy to reinforce the parallelism between the source audio and the transcription is to highlight the words in the transcript as they are spoken during playback.
+Another strategy to reinforce the parallelism between the source audio and the transcription is to highlight the words in the transcript as they are spoken during playback, as shown in Fig. \ref{fig:playback}.
 The waveform renders the portion of audio that has already been played in a purple color, which is also used to render the token currently being played back.
 
 \subsection{Simplification through Modes and Quasi-Modes}
@@ -33,6 +39,12 @@ During pilot testing the need arose for a fast way to play back and pause the au
 We resolved this problem by using Shift+space for playing and pausing.
 In effect, the playback functionality was encapsulated as a \emph{quasi-mode}, a set of distinct features that are accessed while performing a constant action (in this case, pressing the Shift key) \cite{raskin}. 
 The modal design helps prevent beginning users from being overwhelmed with possible actions while allowing more advanced users rapid access to the higher-level features.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth,keepaspectratio]{figures/transcription_edit}
+	\caption{To keep the user interface from becoming cluttered with secondary functionality, the transcription editing feature was implemented as a modal interaction. The pop-up box shown above ``opens'' the selected tokens for text editing in a separate control element, thus notifying the user that he or she is no longer directly editing the audio.}~\label{fig:transcription}
+\end{figure}
 
 \subsection{Pilot Study and Design Improvements}
 We followed an iterative procedure to develop SimpleSpeech.
