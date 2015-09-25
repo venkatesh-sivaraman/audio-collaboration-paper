@@ -32,13 +32,9 @@ Our use of text as a proxy for editing audio rendered it necessary to clearly de
 For instance, direct text input is disallowed in the transcript area to avoid inserting words not present in the original recording.
 (The inability to move the caret within the tokens visually confirms that the transcript cannot be edited without correspondence to the audio.)
 However, we found the capability to edit text of individual words in the transcript to be desirable, especially in the case of ASR errors.
-The transcription editing functionality is available in a separate mode, accessed by pressing the Return key, and insulates the editing within single words to avoid undermining the cohesiveness of the tokens. 
-(If the user started typing while one or more tokens were selected, this automatically activated the transcription editing mode as well; some pilot users found this more intuitive than using the Return key.)
-
-During pilot testing the need arose for a fast way to play back and pause the audio; however, the conventional keyboard shortcut for playback, the spacebar, was already in use for the pause insertion feature.
-We resolved this problem by using Shift+space for playing and pausing.
-In effect, the playback functionality was encapsulated as a \emph{quasi-mode}, a set of distinct features that are accessed while performing a constant action (in this case, pressing the Shift key) \cite{raskin}. 
-The modal design helps prevent beginning users from being overwhelmed with possible actions while allowing more advanced users rapid access to the higher-level features.
+As shown in Fig. \ref{fig:transcription}, the transcription editing functionality is available in a separate mode, accessed by pressing the Return key.
+The pop-up box insulates the editing within single words to avoid undermining the cohesiveness of the tokens. 
+(If the user starts typing while one or more tokens were selected, this automatically activates the transcription editing mode as well; some pilot users found this more intuitive than using the Return key.)
 
 \begin{figure}
 	\centering
@@ -52,6 +48,12 @@ After building an initial prototype of the application, an informal pilot test w
 Each user was given a brief introduction to the software and shown how to use the basic features, then given the scenario of creating an audio response to a written claim on an online forum. 
 (The prompts used in the tests were adapted from the GRE Pool of Issue Topics.)
 After using the software, users were interviewed to obtain feedback on the prototype, yielding the following modifications:
+
+\emph{Playback shortcut}.
+During pilot testing the need arose for a fast way to play back and pause the audio; however, the conventional keyboard shortcut for playback, the spacebar, was already in use for the pause insertion feature.
+We resolved this problem by using Shift+space for playing and pausing.
+In effect, the playback functionality was encapsulated as a \emph{quasi-mode}, a set of distinct features that are accessed while performing a constant action (in this case, pressing the Shift key) \cite{raskin}. 
+The modal design helps prevent beginning users from being overwhelmed with possible actions while allowing more advanced users rapid access to the higher-level features.
 
 \emph{Pause manipulation}.
 Another important finding in the pilot study was the importance of being able to introduce and adjust pauses between words, not just to remove them. 
