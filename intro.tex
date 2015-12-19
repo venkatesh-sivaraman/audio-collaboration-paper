@@ -1,8 +1,10 @@
 \section{Introduction}
 
 Asynchronous audio communication (AAC) is rapidly becoming available to mass audiences through social platforms such as WhatsApp, iMessage, and Facebook. 
-While text is still by far the most prevalent mode of communication on the Internet, audio is desirable in many situations because it allows users to deliver more expressive, nuanced messages than text.
-AAC also holds considerable potential for improving online education, where voice communication has been shown to improve student-student and student-instructor engagement as well as a sense of the instructor's social presence \cite{ice,oomen,tu}. 
+While text is still by far the most prevalent (and often most convenient) mode of communication on the Internet, audio is desirable in many situations because of its ability to convey more expression and nuance than text.
+For instance, Mayer's work on multimedia learning \cite{mayer} indicates that audio communication is particularly useful for managing cognitive load where primary material is conveyed visually (e.g., by pointing), and in situations where an emotional connection between speaker and listener is desirable.
+AAC holds considerable potential for improving online education, where voice communication has been demonstrated to improve student-student and student-instructor engagement as well as a sense of the instructor's social presence \cite{ice,oomen,tu}. 
+Our research is primarily motivated by the implications of AAC as a peer-to-peer educational tool, though it may also be applicable to other collaborative settings.
 
 The problem with replacing textual communication with speech, however, is that speakers may face difficulty articulating their ideas vocally.
 For instance, a 2002 study using Wimba voice boards for discussion forums found that students overwhelmingly preferred text over speech comments, in part because it required them to speak fluently without making errors \cite{wimba}.
@@ -17,8 +19,7 @@ AAC platforms in such situations, then, must somehow compensate for the linearit
 
 Our solution is to provide lightweight, easy-to-use editing tools based on automatic speech recognition (ASR)-generated transcripts.
 Many prior studies have utilized transcription to assist in audio editing \cite{casares,rubin,whittaker_semantic}, but only recently has fast, live editing become possible through advances in ASR technology \cite{baker,saon}.
-We designed and developed an audio production tool, which we call SimpleSpeech, that allows users to delete and insert segments of the recording in real-time by manipulating a tokenized text representation. 
-Our user interface design focuses primarily on simplifying quick word-level editing and visually reinforcing the mapping between the source audio and the text, which helps users edit when transcription errors are present.
+We implemented an audio production tool, which we call SimpleSpeech, that allows users to delete and insert segments of the recording in real-time, simplifying quick word-level editing even when transcription errors are present.
 
 Qualitative evidence indicates that SimpleSpeech's simplified interface gave users enough control over the editing process and enabled them to produce more polished audio comments in an online forum discussion.
 A subsequent quantitative evaluation with high school students showed that the mental workload of recording voice messages was significantly decreased with editing functionality, demonstrating that SimpleSpeech would be a valuable enhancement to online audio communication platforms.
