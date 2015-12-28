@@ -4,6 +4,12 @@ Our user interface is quite similar to those created by Rubin \cite{rubin}, Yoon
 Nevertheless, some slight conceptual modifications were necessary to suit the ``live'' editing paradigm, which we discuss below.
 The appearance of the final SimpleSpeech user interface (UI) is shown in Fig. \ref{fig:overview_shot}.
 
+We followed an iterative procedure to progressively improve the design and interactions of SimpleSpeech.
+After building an initial prototype of the application, an informal pilot test was conducted with 5 participants (4 female, 1 male). 
+Each user was given a brief introduction to the software and shown how to use the basic features, then given the scenario of creating an audio response to a written claim on an online forum. 
+(The prompts used in the tests were adapted from the GRE Pool of Issue Topics.)
+The user feedback helped us improve the capabilities of SimpleSpeech, including adding a transcript editing quasi-mode and enabling pause insertion.
+
 Our text-based approach to speech editing requires a reliable transcription as well as time intervals corresponding to each word.
 Both of these requirements are fulfilled by the IBM Watson Developer Cloud speech-to-text transcription service, which is reported to have a word error rate of 10.4\% \cite{soltau:2014}.
 
@@ -22,15 +28,3 @@ The pop-up box insulates the editing within single words to avoid undermining th
 	\caption{To keep the user interface from becoming cluttered with secondary functionality, the transcription editing feature was implemented as a modal interaction. The pop-up box shown above ``opens'' the selected tokens for text editing in a separate control element, thus notifying the user that he or she is no longer directly editing the audio.}
 	\label{fig:transcription}
 \end{figure}
-
-\subsection{Pilot Study and Design Improvements}
-We followed an iterative procedure to progressively improve the design and interactions of SimpleSpeech.
-After building an initial prototype of the application, an informal pilot test was conducted with 5 participants (4 female, 1 male). 
-Each user was given a brief introduction to the software and shown how to use the basic features, then given the scenario of creating an audio response to a written claim on an online forum. 
-(The prompts used in the tests were adapted from the GRE Pool of Issue Topics.)
-After using the software, users were interviewed to obtain feedback on the prototype, yielding the following modifications:
-
-\begin{itemize}
-\item a Shift+space shortcut for controlling playback, which constitutes a \emph{quasi-mode} accessed by pressing the Shift key; and
-\item the ability to introduce and adjust pauses between words, not just to remove them.
-\end{itemize}
