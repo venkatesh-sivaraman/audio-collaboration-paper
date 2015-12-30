@@ -13,9 +13,11 @@ The user feedback helped us improve the capabilities of SimpleSpeech, including 
 Our text-based approach to speech editing requires a reliable transcription as well as time intervals corresponding to each word.
 Both of these requirements are fulfilled by the IBM Watson Developer Cloud speech-to-text transcription service, which is reported to have a word error rate of 10.4\% \cite{soltau:2014}.
 
-We chose to include a waveform visualization as part of the UI in order to remind the user that he or she is ultimately manipulating audio, not text. 
+\red{I think that most of this paragraph about waveform, together with the Fig. \ref{fig:playback}, can be dropped. You can also drop any mention about waveform in the qualitative study, and the conclusion. Having waveform together is not a novel feature, nor the qualitative study users enjoyed it.} We chose to include a waveform visualization as part of the UI in order to remind the user that he or she is ultimately manipulating audio, not text. 
 The waveform, as shown in Fig. \ref{fig:playback}, incorporates several subtle indications of the mapping between its contents and the transcription, including highlighting the audio corresponding to the current selection of tokens and animating deletions and insertions.
 We found the presence of a waveform to be a helpful visual indicator of the purpose of SimpleSpeech because without it, users' inclination was to disregard the original speech and use the system as a dictation tool.
+
+\red{Now the system description looks too flat without any punchlines. Here, I would like to have brief description about the three small new features: voice insertion at the cursor position, pause extension, and in-situ correction of transcription errors. AC wanted us to streamline the design section, so we don't have to present these three as NOVEL features. However, none of the reviewers argued against any of these features, so, presenting them will not hurt anybody. It's a simple balancing. Let's describe it without saying that these are novel. You can re-use some of old writing that you've deleted for this first revision.}
 
 \begin{figure}
 	\centering
@@ -26,7 +28,7 @@ We found the presence of a waveform to be a helpful visual indicator of the purp
 Our use of text as a proxy for editing audio rendered it necessary to clearly delineate the capabilities of SimpleSpeech in comparison to a word processor.
 However, we found the capability to edit text of individual words in the transcript to be desirable, especially in the case of ASR errors.
 As shown in Fig. \ref{fig:transcription}, the transcription editing functionality is available in a separate mode, accessed by pressing the Return key.
-The pop-up box insulates the editing within single words to avoid undermining the cohesiveness of the tokens. 
+The pop-up box insulates the editing within single words to avoid undermining the cohesiveness of the tokens. \red{I also acknowledge that you've described the 'in-situ correction' here. But I think the previous writing about Tokenization was much better as that tells 'why' we designed it that way. You can reuse that paragraph as well. But I will not re-use 'Playback shortcut', because one of the reviewer was against it explicitly "providing a shortcut is not design".}
 
 \begin{figure}
 	\centering
