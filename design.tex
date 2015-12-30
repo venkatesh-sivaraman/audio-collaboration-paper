@@ -14,8 +14,14 @@ Our text-based approach to speech editing requires a reliable transcription as w
 Both of these requirements are fulfilled by the IBM Watson Developer Cloud speech-to-text transcription service, which is reported to have a word error rate of 10.4\% \cite{soltau:2014}.
 
 We chose to include a waveform visualization as part of the UI in order to remind the user that he or she is ultimately manipulating audio, not text. 
-The waveform incorporates several subtle indications of the mapping between its contents and the transcription, including highlighting the audio corresponding to the current selection of tokens and animating deletions and insertions.
+The waveform, as shown in Fig. \ref{fig:playback}, incorporates several subtle indications of the mapping between its contents and the transcription, including highlighting the audio corresponding to the current selection of tokens and animating deletions and insertions.
 We found the presence of a waveform to be a helpful visual indicator of the purpose of SimpleSpeech because without it, users' inclination was to disregard the original speech and use the system as a dictation tool.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\columnwidth,keepaspectratio]{figures/playback}
+	\caption{The waveform visual at the top of the SimpleSpeech editor does not support direct millisecond-level editing; instead, it serves as a visual cue connecting the transcript to the working recording. For instance, the waveform is highlighted during playback in tandem with the current word that is being played.}~\label{fig:playback}
+\end{figure}
 
 Our use of text as a proxy for editing audio rendered it necessary to clearly delineate the capabilities of SimpleSpeech in comparison to a word processor.
 However, we found the capability to edit text of individual words in the transcript to be desirable, especially in the case of ASR errors.
