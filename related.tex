@@ -20,11 +20,11 @@ Since transcription errors tend to obstruct visual comprehension, Vemuri et al. 
 On the production side, there have been several systems that use a time-aligned transcript for editing audio \cite{rubin,whittaker_semantic,yoon} or video \cite{Berthouzoz:2012,casares}. 
 Among them, Whittaker and Rubin's editing system leveraged users' familiarity to text-editing interfaces, and adopted audio editing in that framework. 
 Since we targeted non-professional users, our interface took the text-editing like approach, but was more geared toward supporting a \emph{live} production process and going beyond editing already-transcribed speech. 
-We thus present versatile and novel features for supporting live production, such as voice insertion, pause extension, and fluid revision of transcription errors.
+We thus present versatile features for supporting live production, such as voice insertion, pause extension, and fluid revision of transcription errors.
 
 As in the case of listeners, ASR errors can be detrimental for understanding and skimming audio contents for the purpose of editing \cite{halverson1999beauty}. 
-In the MedSpeak interface, Lai et al. provided a a separate graphical window for fixing transcription errors \cite{Lai:1997}. 
-In a speech production system like SimpleSpeech, though, users could easily get lost between the audio editing and transcription correction modes, so we chose to guide the user's attention through these modes via the movement of the editing caret.
+In the MedSpeak interface, Lai et al. provided a separate graphical window for fixing transcription errors \cite{Lai:1997}. 
+In a speech production system like SimpleSpeech, though, users could easily get lost between the audio editing and transcription correction modes, so we chose to guide the user's attention through these modes via the movement of the editing caret into a quasi-modal interface.
 
 Pauses in speech deliver nuanced meaning such as hesitation or emphasis, so easy and powerful manipulation of pause duration is important. 
 A system called SpeechSkimmer automatically condenses pauses for fast auditory skimming \cite{arons:1993}. 
@@ -32,9 +32,9 @@ Other previous systems supported pause editing via a designated button \cite{Ber
 Rubin et al.'s system used the period key as a shortcut to insert the pause tags, but the duration of the gap was preset and required the use of a separate menu. 
 Our approach is in line with the overall interaction concept of providing a text-like experience, and we adopted the more conventional delete key and spacebar for in-situ removal or arbitrary extension of pause tokens.
 
-\subsection{Formality in Computer-Mediated Communication}
-Most studies on the linguistic traits of computer-mediated communication (CMC) have focused on textual media such as SMS, email, or Facebook posts.
+Perhaps most importantly, studies of the mental and linguistic effects of AAC discussion are limited despite the proliferation of AAC system designs.
+Those studies that exist are focused on the larger category of computer-mediated communication (CMC), which is dominated by textual media such as SMS, email, or Facebook posts.
 For example, Kiesler, Siegel, and McGuire \cite{kiesler} found more equalized group participation and more uninhibited expression of opinions in synchronous text-based CMC than in face-to-face discussions.
 Asynchronous CMC, similar to a discussion board, induces more prosocial behavior and, in fact, more informal communication styles over time than face-to-face \cite{walther}.
 On the other hand, formality and politeness in emails has been shown to increase as the social distance, status gap, and importance of a request increase \cite{cho}.
-However, the formality associated with spoken modes of CMC has not been heavily investigated, especially with comparison to text and to face-to-face communication.
+How these findings about textual media relate to spoken modes of CMC has not been heavily investigated, however.
