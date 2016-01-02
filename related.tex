@@ -1,39 +1,37 @@
 \section{Related Work}
 
 The linear, sequential nature of voice communication not only precludes skimming and navigation capabilities \cite{grudin}, but can also hamper the speech \emph{production} process. 
-Mistakes in recorded speech are harder to revise than textual typos, mainly due to the lack of lightweight voice editing software \cite{marriott2002}. 
-In addition, producing voice is a temporarily linear process which demands the commentator to think and speak simultaneously \cite{marriott2002, yoon:2015}. 
-Therefore, additional cognitive load arises from the fact that the speaker has to keep speaking to prevent undesirable long pauses. 
+Voice production is a temporarily linear process because it demands the speaker to think and speak simultaneously \cite{marriott2002, yoon:2015}.
+Therefore, cognitive load arises from the fact that one has to keep speaking to prevent undesirable long pauses. 
+In addition, mistakes in recorded speech are harder to revise than textual typos, mainly due to the lack of lightweight voice editing software \cite{marriott2002}.  
 Building on the qualitative implications of these previous works, our study presents a quantitative measure about how such burdens are reduced when the voice production system includes lightweight editing features.
 
-Since lower-level audio waveform editing is an onerous task, speech manipulation tools have been developed that present audio in semantically meaningful higher-level chunks, such as phrases.
-Acoustic detection of the presence of speech provides binary visual guidance so that users can edit or index the speech recording \cite{ades1986, hindus:1992}. 
-On the other hand, a pure acoustic approach had limited resolution of the recognition granularity. 
-Time-aligned automatic speech recognition (ASR) has become a popular tool to achieve the word-level structuring of speech \cite{Schmandt81, Wilcox:1992}. 
-Compared with acoustic structuring, ASR brings higher temporal resolution with semantic information, but also suffered from high computation load and delay. 
+Since lower-level audio waveform editing is an onerous task, speech manipulation tools have been developed that present audio in semantically meaningful higher-level chunks, such as words and phrases.
+Acoustic detection of the presence of speech provides simple, binary visual guidance so that users can edit or index the speech recording \cite{ades1986, hindus:1992}; on the other hand, a pure acoustic approach has limited recognition granularity. 
+Time-aligned automatic speech recognition (ASR) has now become a popular tool to achieve the word-level structuring of speech \cite{Schmandt81, Wilcox:1992}. 
+Compared with acoustic structuring, ASR presents semantic information at higher resolution, but has also suffered from high computational load and delay. 
 However, recent technical developments have made ASR faster and more accurate, and we take full benefit of this real-time transcription capability.
 
 Since speech transcription elicits the contents of the recording, researchers have utilized it to assist in visual skimming and navigation. 
-MedSpeak \cite{Lai:1997} and SCANMail \cite{whittaker} were well recognized as a precursor of such systems that use time-alignment data of the transcript for indexing audio. 
+MedSpeak \cite{Lai:1997} and SCANMail \cite{whittaker} are well recognized as precursors of such systems that use time-alignment data of the transcript for indexing audio. 
 Since transcription errors tend to obstruct visual comprehension, Vemuri et al. suggested a novel visualization of the transcript that adjusts transcription brightness to the word's ASR confidence score \cite{Vemuri:2004}. 
 
 On the production side, there have been several systems that use a time-aligned transcript for editing audio \cite{rubin,whittaker_semantic,yoon} or video \cite{Berthouzoz:2012,casares}. 
-Among them, Whittaker and Rubin's editing system leveraged users' familiarity to text-editing interfaces, and adopted audio editing in that framework. 
-Since we targeted non-professional users, our interface took the text-editing like approach, but was more geared toward supporting a \emph{live} production process and going beyond editing already-transcribed speech. 
-We thus present versatile features for supporting live production, such as voice insertion, pause extension, and fluid revision of transcription errors.
+Among them, Whittaker and Rubin's editing system leveraged users' familiarity with text-editing interfaces to adopt audio editing within that paradigm. 
+Since we targeted non-professional users, our interface also took the text-like approach, but emphasizing a \emph{live} production process and going beyond editing already-transcribed speech. 
 
-As in the case of listeners, ASR errors can be detrimental for understanding and skimming audio contents for the purpose of editing \cite{halverson1999beauty}. 
+Just as with listeners, ASR errors can be detrimental for understanding and skimming audio contents during editing \cite{halverson1999beauty}. 
 In the MedSpeak interface, Lai et al. provided a separate graphical window for fixing transcription errors \cite{Lai:1997}. 
 In a speech production system like SimpleSpeech, though, users could easily get lost between the audio editing and transcription correction modes, so we chose to guide the user's attention through these modes via the movement of the editing caret into a quasi-modal interface.
 
 Pauses in speech deliver nuanced meaning such as hesitation or emphasis, so easy and powerful manipulation of pause duration is important. 
 A system called SpeechSkimmer automatically condenses pauses for fast auditory skimming \cite{arons:1993}. 
 Other previous systems supported pause editing via a designated button \cite{Berthouzoz:2012} or specialized tags \cite{rubin}. 
-Rubin et al.'s system used the period key as a shortcut to insert the pause tags, but the duration of the gap was preset and required the use of a separate menu. 
-Our approach is in line with the overall interaction concept of providing a text-like experience, and we adopted the more conventional delete key and spacebar for in-situ removal or arbitrary extension of pause tokens.
+Rubin et al.'s system used the period key as a shortcut to insert pause tags, but the duration of the gap was preset and required the use of a separate menu. 
+Our approach is in line with the overall interaction concept of providing a text-like experience, and we adopted the more conventional delete key and spacebar for in-situ removal and arbitrary extension of pause tokens.
 
-Perhaps most importantly, studies of the mental and linguistic effects of AAC discussion are limited despite the proliferation of AAC system designs.
-Those studies that exist are focused on the larger category of computer-mediated communication (CMC), which is dominated by textual media such as SMS, email, or Facebook posts.
+Perhaps most importantly, studies of the mental and linguistic effects of AAC discourse are limited despite the variety of AAC system designs discussed above.
+Those studies that exist asre focused on the larger category of computer-mediated communication (CMC), which is dominated by textual media such as SMS, email, or Facebook posts.
 For example, Kiesler, Siegel, and McGuire \cite{kiesler} found more equalized group participation and more uninhibited expression of opinions in synchronous text-based CMC than in face-to-face discussions.
 Asynchronous CMC, similar to a discussion board, induces more prosocial behavior and, in fact, more informal communication styles over time than face-to-face \cite{walther}.
 On the other hand, formality and politeness in emails has been shown to increase as the social distance, status gap, and importance of a request increase \cite{cho}.

@@ -23,11 +23,10 @@ On the consumption side, users found the transcript to be helpful in allowing th
 Overall the presence of errors was not a heavy distractor from the content of the messages, echoing findings from Whittaker's voicemail study \cite{whittaker}, although one user described a greater focus on the audio because of these errors ($P_8$).
 
 An important implication of these findings was the relative role of audio and text in SimpleSpeech usage.
-Some of the initial qualitative evidence did suggest that some users preferred to interact primarily with the transcript instead of the voice.
-Participants explained that this preference was due to the fact that ``I learn from text a lot better'' (\red{participant number}), or that they saw the tool as primarily for dictation (\red{participant number}); another possible reason was that they were initially more accustomed to text-based communication.
-However, participants also agreed that the expressive potential of voice was desirable, since ``you can feel the emotions coming across, so ... you can still relate to what the person’s feeling'' (\red{participant numbers}).
+Some qualitative evidence did suggest that users preferred to interact primarily with the transcript, either because they were mostly accustomed to text-based communication or because ``I learn from text a lot better'' ($P_6$).
+However, participants also agreed that the expressive potential of voice was desirable, since ``you can feel the emotions coming across, so ... you can still relate to what the person’s feeling'' ($P_1,\,P_5,\,P_8$).
 This result is consistent with prior studies \cite{ice,oomen,tu} and indicates that text played the most significant role in \emph{factual} comprehension, while audio was most useful for \emph{tonal} comprehension.
-Since both audio and text seem necessary to the purpose of SimpleSpeech, we decided to maintain the combined paradigm throughout the remainder of the study.
+Since both modalities seem necessary to the purpose of SimpleSpeech, we decided to maintain the combined paradigm throughout the study.
 
 In addition to these transcript-related results, the qualitative study also yielded the following new themes:
 
@@ -44,13 +43,12 @@ The fact that users reported this pressure despite the capability to edit their 
 
 \emph{Awareness of the recipient and the editability of the audio drive up the quality of contributions.}
 Four users mentioned the formality of their recordings ($P_1,\,P_5,\,P_7,\,P_9$), which they attributed to ``an expectation'' to edit, given that ``I know that I've had that opportunity and someone else would know that I had that opportunity'' ($P_8$).
-The speakers' inclination to consider their listeners is exemplified by $P_9$, when asked why she was motivated to edit her messages:
+As $P_9$ explained her motivation to edit:
 \begin{quote}
 	Personally I'm editing to express myself a little more in a polished way when I'm writing.... especially if I know someone else is going to review it and be able to respond, I want to make sure I'm as clear as possible and as concise in a way that doesn't really come across when I'm talking.
 \end{quote}
-Listening to another participant before initiating their own comment may have been a factor in determining the users' performance, since the exposure ``gave ... an understanding of how long of a comment, or what kind of direction people were trying to take the discussion'' ($P_9$). 
-Editing contributed to the increased quality as well: ``Since you have the ability to edit things, it feels like you're talking to somebody who's prepared a point or a conversational view'' ($P_5$). 
-The negative viewpoints of a few users on the editing ability were generally expressed in terms of formality, so we considered this theme important for the success of AAC. \red{Can you condense this section into a single paragraph? Though I really liked this quote, the description about the 'Awareness of the recipient' theme here is a bit verbatim.}
+Listening to another participant before initiating their own comment may have been a factor in determining the users' performance ($P_9$), as well as the presence of editing tools: ``Since you have the ability to edit things, it feels like you're talking to somebody who's prepared a point or a conversational view'' ($P_5$). 
+The negative viewpoints of a few users on the editing ability were generally expressed in similar terms, so we considered this theme important for the success of AAC.
 
 \section{Quantitative Evaluation}
 Our second, quantitative experiment was conducted in order to validate the three original themes discussed above.
@@ -81,40 +79,14 @@ Half the participants of the study (Group A) listened to only formal recordings,
 We hypothesized that the participants in Group A would produce more formal messages due to the stimuli they received.
 
 The criterion used for formality was the F-score, a measure of contextuality introduced by Heylighen and Dewaele in 2002 \cite{heylighen}.
-The F-score is a purely textual metric based on the frequencies of various parts of speech in a text: nouns, adjectives and prepositions decrease the contextuality and increase the F-score since they are independent of the circumstances around the text, while deictic words such as verbs, adverbs, pronouns, and interjections increase contextuality and decrease the F-score. 
+The F-score is a purely textual metric based on the frequencies of various parts of speech in a text: nouns, adjectives and prepositions decrease contextuality and increase the F-score since they are independent of the circumstances around the text, while verbs, adverbs, pronouns, and interjections increase contextuality and decrease the F-score. 
 For our stimulus recordings, the initial participants were asked to plan and edit some of the comments and improvise on the others.
-After splitting the resulting messages by formality, the average F-score was 53.7 for the Group A messages and 49.4 for the Group B messages, reflecting the greater contextuality of the recordings produced on-the-fly.
-Group A stimuli also tended to use longer words than those for Group B (4.62 versus 4.38 letters) and tended to be more concise (113 versus 193 words).
+After splitting the resulting messages by formality, the average F-score was 53.7 for the Group A messages and 49.4 for the Group B messages ($p=0.11$ by unpaired $t$-test), reflecting the greater contextuality of the recordings produced on-the-fly.
+Group A stimuli also tended to use longer words than those for Group B (4.62 versus 4.38 letters, $p=0.047$), to be more concise (113 versus 193 words, $p=0.0095$), and to have higher speaking rates (149 compared to 134 words per minute, $p=0.076$).
 After obtaining and categorizing these messages, the voices were anonymized by adjusting the pitch randomly.
 
 \subsection{Results}
 We analyzed the effects of the live voice editing features by analyzing system logs, speech contents, and the task load survey data. The results fell into the following three categories:
-
-\subsubsection{Utilization of SimpleSpeech Features}
-As in the qualitative study, most participants appreciated and took advantage of the ability to edit their messages. They found the interface intuitive and natural, presumably due to familiarity with text-editing interfaces. 
-
-The amount of editing that users engaged in varied widely: on average, about 17.7 edits were made to each comment (\textit{SD} = 17.5, including inserting a new recording, inserting a pause, deleting words, or deleting a pause). 
-Of these changes, the vast majority were subtractive: 6.6 word deletions (\textit{SD} = 11.5) and 6.3 pause deletions (\textit{SD} = 7.7) per message.
-This was consistent with the previously-observed inclination to remove disfluencies and ``awkward'' hesitations from the recordings.
-Both teachers and students exhibited this impetus with no significant difference (12 deletions for students, 16.2 for teachers, $p=0.36$ by unpaired $t$-test), so correcting misspeeches was fairly universal across participants.
-Insertions of any kind were less common, at 1.1 per message (\textit{SD} = 1.9), probably because users tended to correct themselves \emph{post hoc} during the initial take and delete the mistakes afterward.
-\red{number} users went without performing any edits at all on at least one message; \red{number} out of these were teachers, and their messages were generally already fluent.
-
-The average length of each comment was about 1 minute (\textit{M} = 62.4, \textit{SD} = 32.4). The mean word count per session was 130.1 (\textit{SD} = 67.4). There was no statistically significant differences in the speech length or word counts across the different conditions.
-
-One error that several participants made was to use the Delete key on tokens to fix transcription errors, which resulted in the permanent deletion of that audio token. 
-However, emphasis in the tutorial that the Delete key deleted the audio permanently did help other participants avoid making this mistake.
-Another misconception we observed in a few participants was a tendency to treat SimpleSpeech as a dictation tool. 
-These users paused for long periods of time during recording sessions and neglected to play back the messages during editing. 
-Furthermore, their inclination after stopping a recording session was to go back and correct transcription errors so that the visual representation made sense.
-
-\subsubsection{Effect on Task Load}
-Since the NASA-TLX scale is subjective, it does introduce variability between participants due to the differences between their perceived skill at the task \cite{nasatlx}. 
-For instance, one participant could rate the recording task at a 3 out of 20, while another could rate the very same task at a 15.
-Therefore, the strongest comparisons of task load were made in the within-subject dimension, which was the ability or inability to edit.
-
-Overall, the students reported significantly \emph{lower} levels of mental task load or pressure during the E task than the NE task (M$_{E}$ = 8.7, SD$_{E}$ = 3.0 compared to M$_{NE}$ = 10.8, SD$_{NE}$ = 2.3, $p=0.011$ by paired $t$-test). 
-The values for the individual components of the TLX, shown in Table \ref{tab:table1}, yielded the following contributory dimensions on the TLX questionnaire:
 
 \begin{table*}
 	\centering
@@ -137,6 +109,32 @@ The values for the individual components of the TLX, shown in Table \ref{tab:tab
 	\caption{The unweighted mental work load ratings reported by students and teachers from recording voice messages. \textit{E} and \textit{NE} refer to the tasks in which editing was allowed and disallowed, respectively. Each value ranges from 1 to 20, indicating the subjective level of task load that participants rated for each metric; standard deviation is reported in parentheses. ($^+$ -- $p<0.10$, * -- $p<0.05$, paired two-tailed comparison of \textit{E} and \textit{NE})}~\label{tab:table1}
 \end{table*}
 
+\subsubsection{Utilization of SimpleSpeech Features}
+As in the qualitative study, most participants appreciated and took advantage of the ability to edit their messages. They found the interface intuitive and natural, presumably due to familiarity with text-editing interfaces. 
+
+The amount of editing that users engaged in varied widely: on average, about 17.7 edits were made to each comment (\textit{SD} = 17.5, including inserting a new recording, inserting a pause, deleting words, or deleting a pause). 
+Of these changes, the vast majority were subtractive: 6.6 word deletions (\textit{SD} = 11.5) and 6.3 pause deletions (\textit{SD} = 7.7) per message.
+This was consistent with the previously-observed inclination to remove disfluencies and ``awkward'' hesitations from the recordings.
+Both teachers and students exhibited this impetus with no significant difference (12 deletions for students, 16.2 for teachers, $p=0.36$ by unpaired $t$-test), so correcting misspeeches was fairly universal across participants.
+Insertions of any kind were less common, at 1.1 per message (\textit{SD} = 1.9), probably because users tended to correct themselves \emph{post hoc} during the initial take and delete the mistakes afterward.
+Four users went without performing any edits at all on at least one message; three out of these were teachers, and their messages were generally already fluent.
+
+The average length of each comment was about 1 minute (\textit{M} = 62.4, \textit{SD} = 32.4). The mean word count per session was 130.1 (\textit{SD} = 67.4). There were no statistically significant differences in the speech length or word counts between the subject groups.
+
+One error that several participants made was to use the Delete key on tokens to fix transcription errors, which resulted in the permanent deletion of that audio token. 
+However, emphasis in the tutorial that the Delete key deleted the audio permanently did help other participants avoid making this mistake.
+Another misconception we observed in a few participants was a tendency to treat SimpleSpeech as a dictation tool. 
+These users paused for long periods of time during recording sessions and neglected to play back the messages during editing. 
+Furthermore, their inclination after stopping a recording session was to go back and correct transcription errors so that the visual representation made sense.
+
+\subsubsection{Effect on Task Load}
+Since the NASA-TLX scale is subjective, it does introduce variability between participants due to the differences between their perceived skill at the task \cite{nasatlx}. 
+For instance, one participant could rate the recording task at a 3 out of 20, while another could rate the very same task at a 15.
+Therefore, the strongest comparisons of task load were made in the within-subject dimension, which was the ability or inability to edit.
+
+Overall, the students reported significantly \emph{lower} levels of mental task load or pressure during the E task than the NE task (M$_{E}$ = 8.7, SD$_{E}$ = 3.0 compared to M$_{NE}$ = 10.8, SD$_{NE}$ = 2.3, $p=0.011$ by paired $t$-test). 
+The values for the individual components of the TLX, shown in Table \ref{tab:table1}, yielded the following contributory dimensions on the TLX questionnaire:
+
 \begin{itemize}
 	\item \emph{Temporal demand}. Students rated the temporal demand at 7.8 for the E task, significantly less than the NE rating of 10.2 ($p=0.037$ by paired $t$-test). 
 	As described by the TLX form, temporal demand refers to ``time pressure due to the rate or pace at which the tasks or task elements occurred'' \cite{nasatlx}.
@@ -144,24 +142,39 @@ The values for the individual components of the TLX, shown in Table \ref{tab:tab
 	\item \emph{Performance}. Students felt more concern about the quality of their messages in the NE task, with a marginally significant difference of 10.0 compared to 8.3 for the E task ($p=0.083$ by paired $t$-test). 
 	Just as the participants in the prior qualitative study had articulated a desire to make their messages better for the sake of their listeners, the students also evidently wanted to improve their recordings in the NE task. 
 	The inability to do so resulted in elevated task load due to performance, while for the E task the stress was lower because they were afforded the chance to correct their mistakes.
-	However, it is worth noting that even despite the capability to edit, the student participants still rated Performance close to the middle of the scale, perhaps representing self-consciousness or comparisons with the stimulus recordings.
 	\item \emph{Effort}. Similarly to performance, students reported having to work significantly harder in the NE task to complete it to their desired level (rated 11.6 compared to 9.1 in the E task, $p=0.014$ by paired $t$-test). 
 	This increased effort could correspond to the additional mental activity which had to be expended in order to generate speech fluently and without excessive hesitation.
 \end{itemize}
 
 While the teachers also reported slightly lower average workload levels in the E task, as shown at the right of Table \ref{tab:table1}, this difference was not significant.
 In fact, 7 of the 12 participating teachers actually rated the E task as requiring a higher workload than the NE task.
-This subset of the teachers, 5 of whom were in Group A, reported an average task load greater in the E task than the NE task for \emph{all} dimensions, especially Mental Demand, Performance, and Frustration.
+This subset of the teachers, 5 of whom were in Group A, reported an average task load greater in the E task than the NE task for \emph{all} dimensions.
 The reason for this rating, these teachers explained, was that the availability of the editing tools caused them to feel more worried about their performance.
 Editing in turn required them to expend more effort to preserve the existing fluidity of their messages.
 
 Overall, the fact that the differences in perception of workload varied so much among teachers indicates that they were not as heavily affected by the ability to edit as the students, who clearly appreciated the security that SimpleSpeech offered.
 
 \subsubsection{Speech Formality Between Subject Groups}
-Contrary to the hypothesis that prior exposure to audio messages would affect the formality or linguistic traits of new messages, the F-scores of the participants' output was unrelated to the group they were in, as shown in Fig. \ref{tab:formality}.
-The average F-score for students was slightly higher for Group A (55.83, \textit{SD} = 10.1) than for Group B (53.42, \textit{SD} = 7.4), but not statistically significant. 
-The F-scores for teachers were almost distinguishable, with a difference of only 0.72.
-However, the students' speaking rates in Group A were significantly faster than those in Group B ($p=0.016$ by unpaired $t$-test), which may reflect an auditory component of formality as observed by the qualitative test users.
+\begin{table*}
+	\centering
+	\begin{tabular}{r c c c c}
+		\toprule
+		& \multicolumn{2}{c}{\textbf{Students}} & \multicolumn{2}{c}{\textbf{Teachers}} \\
+		Group                        & \textit{A} & \textit{B}  & \textit{A} & \textit{B} \\
+		Formality (F-score)          & 55.8 (6.42)   & 53.4 (7.34)         & 54.7 (7.68)   & 55.5 (7.49)\\
+		Word Length                  & 4.4 (0.35)   & 4.4 (0.25)           & 4.5 (0.32)    & 4.5 (0.27)\\
+		Disfluencies (per 100 words) & 1.6 (1.96)    & 2.4 (2.30)          & 1.3 (1.32)    & 1.4 (1.88)\\
+		Word count                   & 101 (36.6)  & $140^+$ (71.5)      & 155 (95.2)  & 130 (46.05)\\
+		Speaking rate (words/min)    & 130 (28.4)  & 115* (21.8)      & 137 (33.4)  & 138 (34.22)\\
+		\bottomrule \\
+	\end{tabular}
+	\caption{Various metrics describing the formality of the audio messages produced by each participant group. Group A listened to more formal initial stimulus recordings than Group B. There were few significant differences in these criteria between the groups, indicating that formality was dependent on the general context of AAC as well as the speaker's preference (especially for teachers). ($^+$ -- $p<0.10$, * -- $p<0.05$, unpaired two-tailed comparison of groups A and B)}~\label{tab:formality}
+\end{table*}
+
+Contrary to the hypothesis that prior exposure to audio messages would affect the formality or linguistic traits of new messages, the F-scores of the participants' output were unrelated to the group they were in, as shown in Fig. \ref{tab:formality}.
+However, the students' speaking rates in Group A were significantly faster than those in Group B ($p=0.016$ by unpaired $t$-test).
+Moreover, students in Group B spoke significantly faster than teachers exposed to the same stimulus recordings ($p=0.0016$ by unpaired $t$-test), even though there was no corresponding difference in Group A.
+This may reflect the auditory component of formality observed by the qualitative test users, since the faster speaking rate could be interpreted as thought-out or engaging speech.
 
 Interestingly, the same teachers who reported higher task load in the editing task also produced more formal messages than the other teachers (mean F-score 56.6 compared to 53.1, $p=0.12$ by unpaired $t$-test), with longer words (4.58 compared to 4.36 letters), and fewer disfluencies (1.3 compared to 2.1 per 100 words).
 In fact, the student participant group also contained members who rated the E task as more demanding than the NE task, though fewer in number (4 out of 16); these students produced much more formal messages than their peers as well (57.9 compared to 53.5,  $p=0.027$ by unpaired $t$-test). 
@@ -170,28 +183,12 @@ These participants could have had more experience speaking extemporaneously or f
 Overall, the formality of the recordings was not affected by the stimulus message or even whether the participant was a teacher or a student.
 Therefore, considering that the F-score measures contextuality between the speaker and the audience, the principal sources of variation in F-score must have been personal aptitude and preference for the medium and the scenario of an online forum discussion.
 
-\begin{table*}
-	\centering
-	\begin{tabular}{r c c c c}
-		\toprule
-        & \multicolumn{2}{c}{\textbf{Students}} & \multicolumn{2}{c}{\textbf{Teachers}} \\
-        Group                        & \textit{A} & \textit{B}  & \textit{A} & \textit{B} \\
-        Formality (F-score)          & 55.8 (6.42)   & 53.4 (7.34)         & 54.7 (7.68)   & 55.5 (7.49)\\
-        Word Length                  & 4.4 (0.35)   & 4.4 (0.25)           & 4.5 (0.32)    & 4.5 (0.27)\\
-        Disfluencies (per 100 words) & 1.6 (1.96)    & 2.4 (2.30)          & 1.3 (1.32)    & 1.4 (1.88)\\
-        Word count                   & 101 (36.6)  & $140^+$ (71.5)      & 155 (95.2)  & 130 (46.05)\\
-        Speaking rate (words/min)    & 130 (28.4)  & 115* (21.8)      & 137 (33.4)  & 138 (34.22)\\
-		\bottomrule \\
-	\end{tabular}
-	\caption{Various metrics describing the formality of the audio messages produced by each participant group. Group A listened to more formal initial stimulus recordings than Group B. There were few significant differences in these criteria between the groups, indicating that formality was dependent on the general context of AAC as well as the speaker's preference (especially for teachers). ($^+$ -- $p<0.10$, * -- $p<0.05$, unpaired two-tailed comparison of groups A and B)}~\label{tab:formality}
-\end{table*}
-
 \section{Formality Comparison}
 Contextuality in the online voice-based forum scenario could be highly indicative of AAC's potential applications, and to our knowledge this trait has not been studied extensively.
 We therefore conducted a comparison between the voice messages composed during this study and several publicly-available corpora.
 To our knowledge, no corpus exists that was collected in an audio-text situation like SimpleSpeech, so contrasts in formality inevitably arise from the differences in medium. 
 
-The SimpleSpeech text, the focal point of the comparison representing AAC, contained 14,569 words from 112 messages.
+The SimpleSpeech text, representing AAC, contained 14,569 words from 112 messages.
 For written documents, we used several sections of the well-known Brown corpus to compile general categories of text: nonfiction, fiction, and technical writing (consisting of government documents, scientific articles, and news) \cite{brown}.
 We obtained chatroom text from the \texttt{nps\_chat} corpus, face-to-face conversation data from the \texttt{webtext} corpus, and telephone data from the \texttt{switchboard} corpus, all available as part of the Natural Language Toolkit (NLTK) \cite{nltk}.
 Finally, we also analyzed email communication in non-spam messages from the Enron corpus \cite{enronsent}, as well as a corpus of Twitter posts \cite{twitter}.
