@@ -1,12 +1,6 @@
 
 \section{Designing SimpleSpeech}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=\columnwidth,keepaspectratio]{figures/playback}
-	\caption{The waveform visual at the top of the SimpleSpeech editor does not support direct millisecond-level editing; instead, it serves as a visual cue connecting the transcript to the working recording. For instance, the waveform is highlighted during playback in tandem with the current word that is being played.}~\label{fig:playback}
-\end{figure}
-
 Building on the capabilities developed in these prior studies, SimpleSpeech is a web-based application for recording and editing short voice messages in a discussion setting (see Fig. \ref{fig:overview_shot}).
 The design of SimpleSpeech is largely inspired by the transcription-based speech editing systems developed by Rubin \cite{rubin}, Yoon \cite{yoon}, and Whittaker \cite{whittaker_semantic}, which also use ASR transcription as a semantic and visual proxy for audio.
 In addition, some slight conceptual modifications were necessary to suit the ``live'' editing paradigm, in which the user records and edits spoken comments in a unified workflow.
