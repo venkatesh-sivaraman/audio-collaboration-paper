@@ -1,13 +1,13 @@
 \section{Related Work}
 
 The linear, sequential nature of voice communication not only precludes skimming and navigation capabilities \cite{grudin}, but can also hamper the speech \emph{production} process. 
-Voice production is a temporarily linear process because it demands the speaker to think and speak simultaneously \cite{marriott2002, yoon:2015}.
+Voice production is a temporarily linear process which demands that the speaker thinks and speaks simultaneously \cite{marriott2002, yoon:2015}.
 Therefore, cognitive load arises from the fact that one has to keep speaking to prevent undesirable long pauses. 
 In addition, mistakes in recorded speech are harder to revise than textual typos, mainly due to the lack of lightweight voice editing software \cite{marriott2002}.  
 Building on the qualitative implications of these previous works, our study presents a quantitative measure about how such burdens are reduced when the voice production system includes lightweight editing features.
 
 Because lower-level audio waveform editing is an onerous task, speech manipulation tools have been developed that present audio in semantically meaningful higher-level chunks, such as words and phrases.
-Acoustic detection of the presence of speech provides simple, binary visual guidance so that users can edit or index the speech recording \cite{ades1986, hindus:1992}; on the other hand, a pure acoustic approach has limited recognition granularity. 
+Acoustic detection of the presence of speech provides simple, discretized visual guidance so that users can edit or index the speech recording \cite{ades1986, hindus:1992}; on the other hand, a pure acoustic approach has limited recognition granularity. % I'm actually not sure what you're saying here. Is the part after the semicolon a compare-contrast or describing the limits of the first part?
 Time-aligned automatic speech recognition (ASR) has now become a popular tool to achieve the word-level structuring of speech \cite{Schmandt81, Wilcox:1992}. 
 Compared with acoustic structuring, ASR presents semantic information at higher resolution, but has also suffered from high computational load and delay. 
 However, recent technical developments have made ASR faster and more accurate, and we take full benefit of this real-time transcription capability.
@@ -28,10 +28,10 @@ Pauses in speech deliver nuanced meaning such as hesitation or emphasis, so easy
 A system called SpeechSkimmer automatically condenses pauses for fast auditory skimming \cite{arons:1993}. 
 Other previous systems supported pause editing via a designated button \cite{Berthouzoz:2012} or specialized tags \cite{rubin}. 
 Rubin et al.'s system used the period key as a shortcut to insert pause tags, but the duration of the gap was preset and required the use of a separate menu. 
-Our approach is in line with the overall interaction concept of providing a text-like experience, and we adopted the more conventional delete key and spacebar for in-situ removal and arbitrary extension of pause tokens.
+Our approach is based on a traditional text editor, where users adjust lengths of pauses by adding and deleting spaces with the spacer bar and delete keys. The length of the pause corresponds to the number of spaces.
 
 Perhaps most importantly, studies of the mental and linguistic effects of AAC discourse are limited despite the variety of AAC system designs discussed above.
-Those studies that exist asre focused on the larger category of computer-mediated communication (CMC), which is dominated by textual media such as SMS, email, or Facebook posts.
+Those studies that exist are focused on the larger category of computer-mediated communication (CMC), which is dominated by textual media such as SMS, email, or Facebook posts.
 For example, Kiesler, Siegel, and McGuire \cite{kiesler} found more equalized group participation and more uninhibited expression of opinions in synchronous text-based CMC than in face-to-face discussions.
 Asynchronous CMC, similar to a discussion board, induces more prosocial behavior and, in fact, more informal communication styles over time than face-to-face \cite{walther}.
 On the other hand, formality and politeness in emails has been shown to increase as the social distance, status gap, and importance of a request increase \cite{cho}.
